@@ -1,0 +1,45 @@
+%%
+
+%pos int
+%verbose
+%start program
+%eop EOF
+%noshift EOF
+
+%term
+    EOF 
+  | ID of string
+  | INT of int | STRING of string 
+  | COMMA | SEMICOLON | LPAREN | RPAREN | LBRACK | RBRACK 
+  | LBRACE | RBRACE
+  | PLUS | MINUS | TIMES | DIVIDE 
+  | EQ | NEQ | LT | LE | GT | GE
+  | AND | OR | ASSIGN
+  | IF | ELSE 
+  | WHILE | FOR | BREAK | CONTINUE
+
+%nonterm  exp | program | ty | tyfs | tyfs_t | args | args_t
+	| decs | tydec | vardec | fundec | rcd | rcd_t | lval | lval_t
+	| exp_seq | exp_seq_t 
+
+%name C
+
+%keyword WHILE FOR BREAK IF ELSE CONTINUE
+%prefer ELSE LPAREN
+%value ID ("bogus")
+%value INT (1)
+%value STRING ("")
+
+
+%nonassoc ELSE
+%nonassoc ASSIGN
+%left AND OR
+%nonassoc EQ NEQ LT GT LE GE
+%left PLUS MINUS
+%left TIMES DIVIDE
+
+%%
+
+
+
+
