@@ -11,6 +11,7 @@ fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end
 fun str2int(s) = foldl (fn(a,r) => ord(a)-ord(#"0")+10*r) 0 (explode s)
 
 %%
+COMMENT=\/\*.*\*\/;
 DIGIT=[0-9]+;
 IDENTIFIER=[a-zA-Z][a-zA-Z0-9]*;
 QUOTE=[\"];
@@ -43,9 +44,12 @@ QUOTE=[\"];
 
 for      => (Tokens.FOR(yypos,yypos+3));
 while    => (Tokens.WHILE(yypos,yypos+5));
+break 	 => (Tokens.BREAK(yypos,yypos+5));
+continue => (Tokens.BREAK(yypos,yypos+8));
 if 	 => (Tokens.IF(yypos,yypos+2));
 else     => (Tokens.ELSE(yypos,yypos+4));
 then     => (Tokens.THEN(yypos,yypos+4));
 
+{COMMENT} => (continue());
 {IDENTIFIER} => (Tokens.ID(yytext,yypos,yypos+size yytext));
 {DIGIT} => (Tokens.INT(str2int yytext,yypos,yypos+size yytext));
