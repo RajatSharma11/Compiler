@@ -34,7 +34,6 @@ QUOTE=[\"];
 "<="	=> (Tokens.LE(yypos,yypos+2));
 "<"	=> (Tokens.LT(yypos,yypos+1));
 "!="	=> (Tokens.NEQ(yypos,yypos+2));
-":"     => (Tokens.COLON(yypos,yypos+1));
 ";"     => (Tokens.SEMICOLON(yypos,yypos+1));
 "=="	=> (Tokens.EQ(yypos,yypos+2));
 "{"     => (Tokens.LBRACE(yypos,yypos+1));
@@ -50,7 +49,6 @@ break 	 => (Tokens.BREAK(yypos,yypos+5));
 continue => (Tokens.BREAK(yypos,yypos+8));
 if 	 => (Tokens.IF(yypos,yypos+2));
 else     => (Tokens.ELSE(yypos,yypos+4));
-then     => (Tokens.THEN(yypos,yypos+4));
 
 {COMMENT} => (continue());
 {IDENTIFIER} => (Tokens.ID(yytext,yypos,yypos+size yytext));

@@ -19,7 +19,6 @@ val FOR: linenum * linenum -> token
 val WHILE: linenum * linenum -> token
 val IF: linenum * linenum -> token
 val ELSE:  linenum * linenum -> token
-val THEN:  linenum * linenum -> token
 val RBRACE:  linenum * linenum -> token
 val LBRACE:  linenum * linenum -> token
 val RBRACK:  linenum * linenum -> token
@@ -27,7 +26,6 @@ val LBRACK:  linenum * linenum -> token
 val RPAREN:  linenum * linenum -> token
 val LPAREN:  linenum * linenum -> token
 val SEMICOLON:  linenum * linenum -> token
-val COLON:  linenum * linenum -> token
 val COMMA:  linenum * linenum -> token
 val STRING: (string) *  linenum * linenum -> token
 val INT: (int) *  linenum * linenum -> token
