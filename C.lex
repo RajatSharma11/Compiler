@@ -15,6 +15,8 @@ COMMENT=\/\*.*\*\/;
 DIGIT=[0-9]+;
 IDENTIFIER=[a-zA-Z][a-zA-Z0-9]*;
 QUOTE=[\"];
+
+%header (functor CLexFun (structure Tokens:C_TOKENS));
 %%
 
 \n	=> (lineNum := !lineNum+1; linePos := yypos :: !linePos; continue());
