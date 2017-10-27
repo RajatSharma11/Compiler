@@ -24,7 +24,7 @@ structure A = Absyn
 %nonterm  
   empty
   | dec of A.dec | decs of A.dec list |fundec of A.dec
-  | exp of A.exp | explist of A.exp list
+  | exp of A.exp | explist of A.exp list | vardec of A.dec 
   | program of A.exp
 
 
@@ -56,13 +56,18 @@ decs : dec                                    ([dec])
                                               | (A.FunctionDec [f], A.FunctionDec fs :: ds) => A.FunctionDec (f :: fs) :: ds
                                               | (d, ds) => d :: ds
 					      )        
+dec : vardec 				      (vardec)
+    | fundec				      (fundec)
+
+
+vardec : ID ASSIGN exp                    (A.VarDec { name = Symbol.symbol ID, typ = NONE, init = exp, pos = VARright, 						      escape = ref true })
+
 
 explist : empty                               (nil)
         | exp                                 (exp :: nil)
         | explist COMMA exp                   (exp :: explist)
 
 exp : ID                                      (A.VarExp (A.SimpleVar (Symbol.symbol ID, IDleft)))
-    | NIL                                     (A.NilExp)
     | MINUS exp %prec UMINUS                  (A.OpExp {left = A.IntExp 0, oper = A.MinusOp, right = exp, pos = MINUSright})
     | INT                                     (A.IntExp INT)
     | STRING                                  (A.StringExp (STRING, STRINGright))
@@ -93,7 +98,7 @@ exp : ID                                      (A.VarExp (A.SimpleVar (Symbol.sym
                                                | A.SeqExp exps => A.SeqExp ((exp1, exp1right) :: exps)
                                                | _ => A.SeqExp [ (exp1, exp1right), (exp2, exp2right) ]
 					      )
-	(* For loop not added *)
+	(* For loop and function declaration not added *)
 
                                       
 
