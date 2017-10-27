@@ -35,9 +35,9 @@ val s = [
 \\000"
 ),
  (1, 
-"\003\003\003\003\003\003\003\003\003\082\084\003\003\003\003\003\
+"\003\003\003\003\003\003\003\003\003\079\081\003\003\003\003\003\
 \\003\003\003\003\003\003\003\003\003\003\003\003\003\003\003\003\
-\\082\080\077\003\003\003\076\003\075\074\073\072\071\070\003\066\
+\\079\077\003\003\003\003\076\003\075\074\073\072\071\070\003\066\
 \\064\064\064\064\064\064\064\064\064\064\003\063\061\059\057\003\
 \\003\007\007\007\007\007\007\007\007\007\007\007\007\007\007\007\
 \\007\007\007\007\007\007\007\007\007\007\007\056\003\055\003\003\
@@ -532,40 +532,18 @@ val s = [
  (77, 
 "\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
-\\078\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
-\\078\078\078\078\078\078\078\078\078\078\000\000\000\000\000\000\
-\\000\078\078\078\078\078\078\078\078\078\078\078\078\078\078\078\
-\\078\078\078\078\078\078\078\078\078\078\078\000\000\000\000\078\
-\\000\078\078\078\078\078\078\078\078\078\078\078\078\078\078\078\
-\\078\078\078\078\078\078\078\078\078\078\078\000\000\000\000\000\
-\\000"
-),
- (78, 
-"\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
-\\078\000\079\000\000\000\000\000\000\000\000\000\000\000\000\000\
-\\078\078\078\078\078\078\078\078\078\078\000\000\000\000\000\000\
-\\000\078\078\078\078\078\078\078\078\078\078\078\078\078\078\078\
-\\078\078\078\078\078\078\078\078\078\078\078\000\000\000\000\078\
-\\000\078\078\078\078\078\078\078\078\078\078\078\078\078\078\078\
-\\078\078\078\078\078\078\078\078\078\078\078\000\000\000\000\000\
-\\000"
-),
- (80, 
-"\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
-\\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
-\\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
-\\000\000\000\000\000\000\000\000\000\000\000\000\000\081\000\000\
+\\000\000\000\000\000\000\000\000\000\000\000\000\000\078\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000"
 ),
- (82, 
-"\000\000\000\000\000\000\000\000\000\083\000\000\000\000\000\000\
+ (79, 
+"\000\000\000\000\000\000\000\000\000\080\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
-\\083\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
+\\080\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
 \\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\000\
@@ -584,87 +562,84 @@ in Vector.fromList(map g
 [{fin = [], trans = 0},
 {fin = [], trans = 1},
 {fin = [], trans = 1},
-{fin = [(N 125)], trans = 0},
-{fin = [(N 39),(N 125)], trans = 0},
-{fin = [(N 15),(N 125)], trans = 0},
-{fin = [(N 37),(N 125)], trans = 0},
-{fin = [(N 120),(N 125)], trans = 7},
-{fin = [(N 120)], trans = 7},
-{fin = [(N 120),(N 125)], trans = 9},
-{fin = [(N 120)], trans = 10},
-{fin = [(N 120)], trans = 11},
-{fin = [(N 120)], trans = 12},
-{fin = [(N 68),(N 120)], trans = 7},
-{fin = [(N 120),(N 125)], trans = 14},
-{fin = [(N 120)], trans = 15},
-{fin = [(N 51),(N 120)], trans = 7},
-{fin = [(N 120),(N 125)], trans = 17},
-{fin = [(N 120)], trans = 18},
-{fin = [(N 120)], trans = 19},
-{fin = [(N 120)], trans = 20},
-{fin = [(N 80),(N 120)], trans = 7},
-{fin = [(N 120),(N 125)], trans = 22},
-{fin = [(N 120)], trans = 23},
-{fin = [(N 120)], trans = 24},
-{fin = [(N 120)], trans = 25},
-{fin = [(N 120)], trans = 26},
-{fin = [(N 58),(N 120)], trans = 7},
-{fin = [(N 120),(N 125)], trans = 28},
-{fin = [(N 120)], trans = 29},
-{fin = [(N 120)], trans = 30},
-{fin = [(N 120)], trans = 31},
-{fin = [(N 74),(N 120)], trans = 7},
-{fin = [(N 120),(N 125)], trans = 33},
-{fin = [(N 98),(N 120)], trans = 7},
-{fin = [(N 120),(N 125)], trans = 35},
-{fin = [(N 120)], trans = 36},
-{fin = [(N 62),(N 120)], trans = 7},
-{fin = [(N 120),(N 125)], trans = 38},
-{fin = [(N 120)], trans = 39},
-{fin = [(N 120)], trans = 40},
-{fin = [(N 103),(N 120)], trans = 7},
-{fin = [(N 120),(N 125)], trans = 42},
-{fin = [(N 120)], trans = 43},
-{fin = [(N 120)], trans = 44},
-{fin = [(N 120)], trans = 45},
-{fin = [(N 120)], trans = 46},
-{fin = [(N 120)], trans = 47},
-{fin = [(N 120)], trans = 48},
-{fin = [(N 95),(N 120)], trans = 7},
-{fin = [(N 120),(N 125)], trans = 50},
-{fin = [(N 120)], trans = 51},
-{fin = [(N 120)], trans = 52},
-{fin = [(N 120)], trans = 53},
-{fin = [(N 86),(N 120)], trans = 7},
-{fin = [(N 47),(N 125)], trans = 0},
-{fin = [(N 45),(N 125)], trans = 0},
-{fin = [(N 22),(N 125)], trans = 57},
+{fin = [(N 120)], trans = 0},
+{fin = [(N 39),(N 120)], trans = 0},
+{fin = [(N 15),(N 120)], trans = 0},
+{fin = [(N 37),(N 120)], trans = 0},
+{fin = [(N 115),(N 120)], trans = 7},
+{fin = [(N 115)], trans = 7},
+{fin = [(N 115),(N 120)], trans = 9},
+{fin = [(N 115)], trans = 10},
+{fin = [(N 115)], trans = 11},
+{fin = [(N 115)], trans = 12},
+{fin = [(N 68),(N 115)], trans = 7},
+{fin = [(N 115),(N 120)], trans = 14},
+{fin = [(N 115)], trans = 15},
+{fin = [(N 51),(N 115)], trans = 7},
+{fin = [(N 115),(N 120)], trans = 17},
+{fin = [(N 115)], trans = 18},
+{fin = [(N 115)], trans = 19},
+{fin = [(N 115)], trans = 20},
+{fin = [(N 80),(N 115)], trans = 7},
+{fin = [(N 115),(N 120)], trans = 22},
+{fin = [(N 115)], trans = 23},
+{fin = [(N 115)], trans = 24},
+{fin = [(N 115)], trans = 25},
+{fin = [(N 115)], trans = 26},
+{fin = [(N 58),(N 115)], trans = 7},
+{fin = [(N 115),(N 120)], trans = 28},
+{fin = [(N 115)], trans = 29},
+{fin = [(N 115)], trans = 30},
+{fin = [(N 115)], trans = 31},
+{fin = [(N 74),(N 115)], trans = 7},
+{fin = [(N 115),(N 120)], trans = 33},
+{fin = [(N 98),(N 115)], trans = 7},
+{fin = [(N 115),(N 120)], trans = 35},
+{fin = [(N 115)], trans = 36},
+{fin = [(N 62),(N 115)], trans = 7},
+{fin = [(N 115),(N 120)], trans = 38},
+{fin = [(N 115)], trans = 39},
+{fin = [(N 115)], trans = 40},
+{fin = [(N 103),(N 115)], trans = 7},
+{fin = [(N 115),(N 120)], trans = 42},
+{fin = [(N 115)], trans = 43},
+{fin = [(N 115)], trans = 44},
+{fin = [(N 115)], trans = 45},
+{fin = [(N 115)], trans = 46},
+{fin = [(N 115)], trans = 47},
+{fin = [(N 115)], trans = 48},
+{fin = [(N 95),(N 115)], trans = 7},
+{fin = [(N 115),(N 120)], trans = 50},
+{fin = [(N 115)], trans = 51},
+{fin = [(N 115)], trans = 52},
+{fin = [(N 115)], trans = 53},
+{fin = [(N 86),(N 115)], trans = 7},
+{fin = [(N 47),(N 120)], trans = 0},
+{fin = [(N 45),(N 120)], trans = 0},
+{fin = [(N 22),(N 120)], trans = 57},
 {fin = [(N 20)], trans = 0},
-{fin = [(N 17),(N 125)], trans = 59},
+{fin = [(N 17),(N 120)], trans = 59},
 {fin = [(N 35)], trans = 0},
-{fin = [(N 27),(N 125)], trans = 61},
+{fin = [(N 27),(N 120)], trans = 61},
 {fin = [(N 25)], trans = 0},
-{fin = [(N 32),(N 125)], trans = 0},
-{fin = [(N 117),(N 125)], trans = 64},
-{fin = [(N 117)], trans = 64},
-{fin = [(N 9),(N 125)], trans = 66},
+{fin = [(N 32),(N 120)], trans = 0},
+{fin = [(N 112),(N 120)], trans = 64},
+{fin = [(N 112)], trans = 64},
+{fin = [(N 9),(N 120)], trans = 66},
 {fin = [], trans = 67},
 {fin = [], trans = 68},
-{fin = [(N 114)], trans = 67},
-{fin = [(N 5),(N 125)], trans = 0},
-{fin = [(N 11),(N 125)], trans = 0},
-{fin = [(N 3),(N 125)], trans = 0},
-{fin = [(N 7),(N 125)], trans = 0},
-{fin = [(N 43),(N 125)], trans = 0},
-{fin = [(N 41),(N 125)], trans = 0},
-{fin = [(N 13),(N 125)], trans = 0},
-{fin = [(N 125)], trans = 77},
-{fin = [], trans = 78},
-{fin = [(N 108)], trans = 0},
-{fin = [(N 125)], trans = 80},
+{fin = [(N 109)], trans = 67},
+{fin = [(N 5),(N 120)], trans = 0},
+{fin = [(N 11),(N 120)], trans = 0},
+{fin = [(N 3),(N 120)], trans = 0},
+{fin = [(N 7),(N 120)], trans = 0},
+{fin = [(N 43),(N 120)], trans = 0},
+{fin = [(N 41),(N 120)], trans = 0},
+{fin = [(N 13),(N 120)], trans = 0},
+{fin = [(N 120)], trans = 77},
 {fin = [(N 30)], trans = 0},
-{fin = [(N 123),(N 125)], trans = 82},
-{fin = [(N 123)], trans = 82},
+{fin = [(N 118),(N 120)], trans = 79},
+{fin = [(N 118)], trans = 79},
 {fin = [(N 1)], trans = 0}])
 end
 structure StartStates =
@@ -708,81 +683,79 @@ let fun continue() = lex() in
 
 			(* Application actions *)
 
-  1 => ((*#line 19.8 "C.lex"*)lineNum := !lineNum+1; linePos := yypos :: !linePos; continue()(*#line 711.1 "C.lex.sml"*)
+  1 => ((*#line 19.8 "C.lex"*)lineNum := !lineNum+1; linePos := yypos :: !linePos; continue()(*#line 686.1 "C.lex.sml"*)
 )
-| 103 => ((*#line 51.16 "C.lex"*)Tokens.ELSE(yypos,yypos+4)(*#line 713.1 "C.lex.sml"*)
+| 103 => ((*#line 51.16 "C.lex"*)Tokens.ELSE(yypos,yypos+4)(*#line 688.1 "C.lex.sml"*)
 )
-| 108 => let val yytext=yymktext() in (*#line 53.27 "C.lex"*)Tokens.STRING(yytext, yypos, yypos + size yytext)(*#line 715.1 "C.lex.sml"*)
+| 109 => ((*#line 53.15 "C.lex"*)continue()(*#line 690.1 "C.lex.sml"*)
+)
+| 11 => ((*#line 25.10 "C.lex"*)Tokens.COMMA(yypos,yypos+1)(*#line 692.1 "C.lex.sml"*)
+)
+| 112 => let val yytext=yymktext() in (*#line 54.13 "C.lex"*)Tokens.INT(str2int yytext, yypos, yypos + size yytext)(*#line 694.1 "C.lex.sml"*)
  end
-| 11 => ((*#line 25.10 "C.lex"*)Tokens.COMMA(yypos,yypos+1)(*#line 717.1 "C.lex.sml"*)
-)
-| 114 => ((*#line 55.15 "C.lex"*)continue()(*#line 719.1 "C.lex.sml"*)
-)
-| 117 => let val yytext=yymktext() in (*#line 56.13 "C.lex"*)Tokens.INT(str2int yytext, yypos, yypos + size yytext)(*#line 721.1 "C.lex.sml"*)
+| 115 => let val yytext=yymktext() in (*#line 55.18 "C.lex"*)Tokens.ID(yytext, yypos, yypos + size yytext)(*#line 696.1 "C.lex.sml"*)
  end
-| 120 => let val yytext=yymktext() in (*#line 57.18 "C.lex"*)Tokens.ID(yytext, yypos, yypos + size yytext)(*#line 723.1 "C.lex.sml"*)
+| 118 => ((*#line 56.13 "C.lex"*)continue()(*#line 698.1 "C.lex.sml"*)
+)
+| 120 => let val yytext=yymktext() in (*#line 57.7 "C.lex"*)ErrorMsg.error yypos ("illegal character " ^ yytext); continue()(*#line 700.1 "C.lex.sml"*)
  end
-| 123 => ((*#line 58.13 "C.lex"*)continue()(*#line 725.1 "C.lex.sml"*)
+| 13 => ((*#line 26.9 "C.lex"*)Tokens.AND(yypos,yypos+1)(*#line 702.1 "C.lex.sml"*)
 )
-| 125 => let val yytext=yymktext() in (*#line 59.7 "C.lex"*)ErrorMsg.error yypos ("illegal character " ^ yytext); continue()(*#line 727.1 "C.lex.sml"*)
- end
-| 13 => ((*#line 26.9 "C.lex"*)Tokens.AND(yypos,yypos+1)(*#line 729.1 "C.lex.sml"*)
+| 15 => ((*#line 27.13 "C.lex"*)Tokens.OR(yypos,yypos+1)(*#line 704.1 "C.lex.sml"*)
 )
-| 15 => ((*#line 27.13 "C.lex"*)Tokens.OR(yypos,yypos+1)(*#line 731.1 "C.lex.sml"*)
+| 17 => ((*#line 28.13 "C.lex"*)Tokens.ASSIGN(yypos,yypos+1)(*#line 706.1 "C.lex.sml"*)
 )
-| 17 => ((*#line 28.13 "C.lex"*)Tokens.ASSIGN(yypos,yypos+1)(*#line 733.1 "C.lex.sml"*)
+| 20 => ((*#line 29.10 "C.lex"*)Tokens.GE(yypos,yypos+2)(*#line 708.1 "C.lex.sml"*)
 )
-| 20 => ((*#line 29.10 "C.lex"*)Tokens.GE(yypos,yypos+2)(*#line 735.1 "C.lex.sml"*)
+| 22 => ((*#line 30.9 "C.lex"*)Tokens.GT(yypos,yypos+1)(*#line 710.1 "C.lex.sml"*)
 )
-| 22 => ((*#line 30.9 "C.lex"*)Tokens.GT(yypos,yypos+1)(*#line 737.1 "C.lex.sml"*)
+| 25 => ((*#line 31.10 "C.lex"*)Tokens.LE(yypos,yypos+2)(*#line 712.1 "C.lex.sml"*)
 )
-| 25 => ((*#line 31.10 "C.lex"*)Tokens.LE(yypos,yypos+2)(*#line 739.1 "C.lex.sml"*)
+| 27 => ((*#line 32.9 "C.lex"*)Tokens.LT(yypos,yypos+1)(*#line 714.1 "C.lex.sml"*)
 )
-| 27 => ((*#line 32.9 "C.lex"*)Tokens.LT(yypos,yypos+1)(*#line 741.1 "C.lex.sml"*)
+| 3 => ((*#line 21.13 "C.lex"*)Tokens.PLUS(yypos,yypos+1)(*#line 716.1 "C.lex.sml"*)
 )
-| 3 => ((*#line 21.13 "C.lex"*)Tokens.PLUS(yypos,yypos+1)(*#line 743.1 "C.lex.sml"*)
+| 30 => ((*#line 33.10 "C.lex"*)Tokens.NEQ(yypos,yypos+2)(*#line 718.1 "C.lex.sml"*)
 )
-| 30 => ((*#line 33.10 "C.lex"*)Tokens.NEQ(yypos,yypos+2)(*#line 745.1 "C.lex.sml"*)
+| 32 => ((*#line 34.13 "C.lex"*)Tokens.SEMICOLON(yypos,yypos+1)(*#line 720.1 "C.lex.sml"*)
 )
-| 32 => ((*#line 34.13 "C.lex"*)Tokens.SEMICOLON(yypos,yypos+1)(*#line 747.1 "C.lex.sml"*)
+| 35 => ((*#line 35.10 "C.lex"*)Tokens.EQ(yypos,yypos+2)(*#line 722.1 "C.lex.sml"*)
 )
-| 35 => ((*#line 35.10 "C.lex"*)Tokens.EQ(yypos,yypos+2)(*#line 749.1 "C.lex.sml"*)
+| 37 => ((*#line 36.13 "C.lex"*)Tokens.LBRACE(yypos,yypos+1)(*#line 724.1 "C.lex.sml"*)
 )
-| 37 => ((*#line 36.13 "C.lex"*)Tokens.LBRACE(yypos,yypos+1)(*#line 751.1 "C.lex.sml"*)
+| 39 => ((*#line 37.13 "C.lex"*)Tokens.RBRACE(yypos,yypos+1)(*#line 726.1 "C.lex.sml"*)
 )
-| 39 => ((*#line 37.13 "C.lex"*)Tokens.RBRACE(yypos,yypos+1)(*#line 753.1 "C.lex.sml"*)
+| 41 => ((*#line 38.13 "C.lex"*)Tokens.LPAREN(yypos,yypos+1)(*#line 728.1 "C.lex.sml"*)
 )
-| 41 => ((*#line 38.13 "C.lex"*)Tokens.LPAREN(yypos,yypos+1)(*#line 755.1 "C.lex.sml"*)
+| 43 => ((*#line 39.13 "C.lex"*)Tokens.RPAREN(yypos,yypos+1)(*#line 730.1 "C.lex.sml"*)
 )
-| 43 => ((*#line 39.13 "C.lex"*)Tokens.RPAREN(yypos,yypos+1)(*#line 757.1 "C.lex.sml"*)
+| 45 => ((*#line 40.13 "C.lex"*)Tokens.LBRACK(yypos,yypos+1)(*#line 732.1 "C.lex.sml"*)
 )
-| 45 => ((*#line 40.13 "C.lex"*)Tokens.LBRACK(yypos,yypos+1)(*#line 759.1 "C.lex.sml"*)
+| 47 => ((*#line 41.13 "C.lex"*)Tokens.RBRACK(yypos,yypos+1)(*#line 734.1 "C.lex.sml"*)
 )
-| 47 => ((*#line 41.13 "C.lex"*)Tokens.RBRACK(yypos,yypos+1)(*#line 761.1 "C.lex.sml"*)
+| 5 => ((*#line 22.13 "C.lex"*)Tokens.MINUS(yypos,yypos+1)(*#line 736.1 "C.lex.sml"*)
 )
-| 5 => ((*#line 22.13 "C.lex"*)Tokens.MINUS(yypos,yypos+1)(*#line 763.1 "C.lex.sml"*)
+| 51 => ((*#line 42.13 "C.lex"*)Tokens.VAR(yypos, yypos + 3)(*#line 738.1 "C.lex.sml"*)
 )
-| 51 => ((*#line 42.13 "C.lex"*)Tokens.VAR(yypos, yypos + 3)(*#line 765.1 "C.lex.sml"*)
+| 58 => ((*#line 43.14 "C.lex"*)Tokens.RETURN(yypos, yypos + 6)(*#line 740.1 "C.lex.sml"*)
 )
-| 58 => ((*#line 43.14 "C.lex"*)Tokens.RETURN(yypos, yypos + 6)(*#line 767.1 "C.lex.sml"*)
+| 62 => ((*#line 44.16 "C.lex"*)Tokens.FOR(yypos,yypos+3)(*#line 742.1 "C.lex.sml"*)
 )
-| 62 => ((*#line 44.16 "C.lex"*)Tokens.FOR(yypos,yypos+3)(*#line 769.1 "C.lex.sml"*)
+| 68 => ((*#line 45.16 "C.lex"*)Tokens.WHILE(yypos,yypos+5)(*#line 744.1 "C.lex.sml"*)
 )
-| 68 => ((*#line 45.16 "C.lex"*)Tokens.WHILE(yypos,yypos+5)(*#line 771.1 "C.lex.sml"*)
+| 7 => ((*#line 23.13 "C.lex"*)Tokens.TIMES(yypos,yypos+1)(*#line 746.1 "C.lex.sml"*)
 )
-| 7 => ((*#line 23.13 "C.lex"*)Tokens.TIMES(yypos,yypos+1)(*#line 773.1 "C.lex.sml"*)
+| 74 => ((*#line 46.15 "C.lex"*)Tokens.PRINT(yypos,yypos+5)(*#line 748.1 "C.lex.sml"*)
 )
-| 74 => ((*#line 46.15 "C.lex"*)Tokens.PRINT(yypos,yypos+5)(*#line 775.1 "C.lex.sml"*)
+| 80 => ((*#line 47.15 "C.lex"*)Tokens.SCANF(yypos,yypos+5)(*#line 750.1 "C.lex.sml"*)
 )
-| 80 => ((*#line 47.15 "C.lex"*)Tokens.SCANF(yypos,yypos+5)(*#line 777.1 "C.lex.sml"*)
+| 86 => ((*#line 48.15 "C.lex"*)Tokens.BREAK(yypos,yypos+5)(*#line 752.1 "C.lex.sml"*)
 )
-| 86 => ((*#line 48.15 "C.lex"*)Tokens.BREAK(yypos,yypos+5)(*#line 779.1 "C.lex.sml"*)
+| 9 => ((*#line 24.13 "C.lex"*)Tokens.DIVIDE(yypos,yypos+1)(*#line 754.1 "C.lex.sml"*)
 )
-| 9 => ((*#line 24.13 "C.lex"*)Tokens.DIVIDE(yypos,yypos+1)(*#line 781.1 "C.lex.sml"*)
+| 95 => ((*#line 49.16 "C.lex"*)Tokens.BREAK(yypos,yypos+8)(*#line 756.1 "C.lex.sml"*)
 )
-| 95 => ((*#line 49.16 "C.lex"*)Tokens.BREAK(yypos,yypos+8)(*#line 783.1 "C.lex.sml"*)
-)
-| 98 => ((*#line 50.12 "C.lex"*)Tokens.IF(yypos,yypos+2)(*#line 785.1 "C.lex.sml"*)
+| 98 => ((*#line 50.12 "C.lex"*)Tokens.IF(yypos,yypos+2)(*#line 758.1 "C.lex.sml"*)
 )
 | _ => raise Internal.LexerError
 

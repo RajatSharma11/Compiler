@@ -50,8 +50,6 @@ fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end
 "if" 	 => (Tokens.IF(yypos,yypos+2));
 "else"     => (Tokens.ELSE(yypos,yypos+4));
 
-\"([a-zA-Z0-9_\ ]+)\" => (Tokens.STRING(yytext, yypos, yypos + size yytext));
-
 {COMMENT} => (continue());
 {DIGIT} => (Tokens.INT(str2int yytext, yypos, yypos + size yytext));
 {IDENTIFIER} => (Tokens.ID(yytext, yypos, yypos + size yytext));
