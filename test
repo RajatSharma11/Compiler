@@ -1,0 +1,5 @@
+print("Hello Rajat");
+function main(a, b) {
+	var x = "This is amazing";
+	return;
+}

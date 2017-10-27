@@ -9,6 +9,11 @@ fun str2int(s) = foldl (fn(a,r) => ord(a)-ord(#"0")+10*r) 0 (explode s)
 fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end 
 
 %%
+	COMMENT=\/\*.*\*\/;
+	DIGIT=[0-9]+;
+	IDENTIFIER=[a-zA-Z][a-zA-Z0-9]*;
+	QUOTE=[\"];
+	SPACE=[\ \t]+;
 %%
 
 \n	=> (lineNum := !lineNum+1; linePos := yypos :: !linePos; continue());
@@ -38,13 +43,17 @@ fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end
 "return" => (Tokens.RETURN(yypos, yypos + 6));
 "for"      => (Tokens.FOR(yypos,yypos+3));
 "while"    => (Tokens.WHILE(yypos,yypos+5));
+"print"   => (Tokens.PRINT(yypos,yypos+5));
+"scanf"	  => (Tokens.SCANF(yypos,yypos+5));
 "break" 	 => (Tokens.BREAK(yypos,yypos+5));
 "continue" => (Tokens.BREAK(yypos,yypos+8));
 "if" 	 => (Tokens.IF(yypos,yypos+2));
 "else"     => (Tokens.ELSE(yypos,yypos+4));
+
 \"([a-zA-Z0-9_\ ]+)\" => (Tokens.STRING(yytext, yypos, yypos + size yytext));
 
-[0-9]+ => (Tokens.INT(str2int yytext, yypos, yypos + size yytext));
-[a-zA-Z_]+ => (Tokens.ID(yytext, yypos, yypos + size yytext));
-[\ \t\b\f\r]+ => (continue());
+{COMMENT} => (continue());
+{DIGIT} => (Tokens.INT(str2int yytext, yypos, yypos + size yytext));
+{IDENTIFIER} => (Tokens.ID(yytext, yypos, yypos + size yytext));
+{SPACE} => (continue());
 . => (ErrorMsg.error yypos ("illegal character " ^ yytext); continue());

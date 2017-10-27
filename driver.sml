@@ -1,4 +1,4 @@
-structure ParseLex =
+structure Parse =
 struct 
   fun parse filename =
       let val file = TextIO.openIn filename

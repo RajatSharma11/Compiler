@@ -32,5 +32,7 @@ val STRING: (string) *  linenum * linenum -> token
 val INT: (int) *  linenum * linenum -> token
 val ID: (string) *  linenum * linenum -> token
 val RETURN: linenum * linenum -> token
+val PRINT: linenum * linenum -> token
+val SCANF: linenum * linenum -> token
 val EOF:  linenum * linenum -> token
 end

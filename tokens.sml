@@ -33,6 +33,8 @@ fun STRING(s,i,j) = "STRING("^s^")     " ^ Int.toString(i)
 fun INT(c,i,j) = "INT("^Int.toString(c)^")   " ^ Int.toString(i)
 fun ID(s,i,j) = "ID("^s^")     " ^ Int.toString(i)
 fun RETURN(i, j) = "RETURN " ^ Int.toString(i)
+fun PRINT(i,j) = "PRINT " ^ Int.toString(i)
+fun SCANF(i,j) = "SCANF " ^ Int.toString(i)
 fun EOF(i,j) = "EOF   " ^ Int.toString(i)
 end
 
