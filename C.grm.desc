@@ -1,0 +1,1474 @@
+43 shift/reduce conflicts
+9 rules not reduced
+
+warning: rule <empty : > will never be reduced
+warning: rule <decs : dec > will never be reduced
+warning: rule <decs : decs dec > will never be reduced
+warning: rule <dec : vardec > will never be reduced
+warning: rule <dec : fundec > will never be reduced
+warning: rule <vardec : ID ASSIGN exp > will never be reduced
+warning: rule <explist : empty > will never be reduced
+warning: rule <explist : exp > will never be reduced
+warning: rule <explist : explist COMMA exp > will never be reduced
+error:  state 28: shift/reduce conflict (shift ELSE, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift OR, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift AND, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift GE, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift GT, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift LE, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift LT, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift NEQ, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift EQ, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift DIVIDE, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift TIMES, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift MINUS, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift PLUS, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift SEMICOLON, reduce by rule 32)
+error:  state 29: shift/reduce conflict (shift SEMICOLON, reduce by rule 11)
+error:  state 34: shift/reduce conflict (shift SEMICOLON, reduce by rule 30)
+error:  state 35: shift/reduce conflict (shift SEMICOLON, reduce by rule 27)
+error:  state 36: shift/reduce conflict (shift SEMICOLON, reduce by rule 26)
+error:  state 37: shift/reduce conflict (shift SEMICOLON, reduce by rule 23)
+error:  state 38: shift/reduce conflict (shift SEMICOLON, reduce by rule 22)
+error:  state 39: shift/reduce conflict (shift SEMICOLON, reduce by rule 25)
+error:  state 40: shift/reduce conflict (shift SEMICOLON, reduce by rule 24)
+error:  state 41: shift/reduce conflict (shift SEMICOLON, reduce by rule 21)
+error:  state 42: shift/reduce conflict (shift SEMICOLON, reduce by rule 20)
+error:  state 43: shift/reduce conflict (shift SEMICOLON, reduce by rule 19)
+error:  state 44: shift/reduce conflict (shift SEMICOLON, reduce by rule 18)
+error:  state 45: shift/reduce conflict (shift SEMICOLON, reduce by rule 17)
+error:  state 46: shift/reduce conflict (shift SEMICOLON, reduce by rule 16)
+error:  state 47: shift/reduce conflict (shift OR, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift AND, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift GE, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift GT, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift LE, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift LT, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift NEQ, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift EQ, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift DIVIDE, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift TIMES, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift MINUS, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift PLUS, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift SEMICOLON, reduce by rule 36)
+error:  state 53: shift/reduce conflict (shift SEMICOLON, reduce by rule 31)
+error:  state 58: shift/reduce conflict (shift SEMICOLON, reduce by rule 28)
+
+state 0:
+
+	program : . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 3
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+	program	goto 60
+
+	.	error
+
+
+state 1:
+
+	exp : lvalue_not_id .  (reduce by rule 29)
+
+
+
+	.	reduce by rule 29
+
+
+state 2:
+
+	exp : lvalue . ASSIGN exp 
+
+	ASSIGN	shift 13
+
+
+	.	error
+
+
+state 3:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : exp . SEMICOLON exp 
+	program : exp .  (reduce by rule 0)
+
+	SEMICOLON	shift 26
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	EQ	shift 21
+	NEQ	shift 20
+	LT	shift 19
+	LE	shift 18
+	GT	shift 17
+	GE	shift 16
+	AND	shift 15
+	OR	shift 14
+
+
+	.	reduce by rule 0
+
+
+state 4:
+
+	exp : BREAK .  (reduce by rule 34)
+
+
+
+	.	reduce by rule 34
+
+
+state 5:
+
+	exp : WHILE . LBRACK exp RBRACK LBRACE exp RBRACE 
+
+	LBRACK	shift 27
+
+
+	.	error
+
+
+state 6:
+
+	exp : IF . exp ELSE exp 
+	exp : IF . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 28
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 7:
+
+	exp : MINUS . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 29
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 8:
+
+	exp : LBRACE . RBRACE 
+
+	RBRACE	shift 30
+
+
+	.	error
+
+
+state 9:
+
+	exp : LPAREN . RPAREN 
+	exp : LPAREN . exp RPAREN 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	RPAREN	shift 32
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 31
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 10:
+
+	exp : STRING .  (reduce by rule 13)
+
+
+
+	.	reduce by rule 13
+
+
+state 11:
+
+	exp : INT .  (reduce by rule 12)
+
+
+
+	.	reduce by rule 12
+
+
+state 12:
+
+	exp : ID .  (reduce by rule 10)
+	exp : ID . LBRACK exp RBRACK ASSIGN exp 
+
+	LBRACK	shift 33
+
+
+	.	reduce by rule 10
+
+
+state 13:
+
+	exp : lvalue ASSIGN . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 34
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 14:
+
+	exp : exp OR . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 35
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 15:
+
+	exp : exp AND . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 36
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 16:
+
+	exp : exp GE . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 37
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 17:
+
+	exp : exp GT . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 38
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 18:
+
+	exp : exp LE . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 39
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 19:
+
+	exp : exp LT . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 40
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 20:
+
+	exp : exp NEQ . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 41
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 21:
+
+	exp : exp EQ . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 42
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 22:
+
+	exp : exp DIVIDE . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 43
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 23:
+
+	exp : exp TIMES . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 44
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 24:
+
+	exp : exp MINUS . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 45
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 25:
+
+	exp : exp PLUS . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 46
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 26:
+
+	exp : exp SEMICOLON . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 47
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 27:
+
+	exp : WHILE LBRACK . exp RBRACK LBRACE exp RBRACE 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 48
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+error:  state 28: shift/reduce conflict (shift ELSE, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift OR, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift AND, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift GE, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift GT, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift LE, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift LT, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift NEQ, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift EQ, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift DIVIDE, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift TIMES, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift MINUS, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift PLUS, reduce by rule 32)
+error:  state 28: shift/reduce conflict (shift SEMICOLON, reduce by rule 32)
+
+state 28:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : IF exp . ELSE exp 
+	exp : IF exp .  (reduce by rule 32)
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	EQ	shift 21
+	NEQ	shift 20
+	LT	shift 19
+	LE	shift 18
+	GT	shift 17
+	GE	shift 16
+	AND	shift 15
+	OR	shift 14
+	ELSE	shift 49
+
+
+	.	reduce by rule 32
+
+error:  state 29: shift/reduce conflict (shift SEMICOLON, reduce by rule 11)
+
+state 29:
+
+	exp : MINUS exp .  (reduce by rule 11)
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+
+
+	.	reduce by rule 11
+
+
+state 30:
+
+	exp : LBRACE RBRACE .  (reduce by rule 15)
+
+
+
+	.	reduce by rule 15
+
+
+state 31:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : LPAREN exp . RPAREN 
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+	RPAREN	shift 50
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	EQ	shift 21
+	NEQ	shift 20
+	LT	shift 19
+	LE	shift 18
+	GT	shift 17
+	GE	shift 16
+	AND	shift 15
+	OR	shift 14
+
+
+	.	error
+
+
+state 32:
+
+	exp : LPAREN RPAREN .  (reduce by rule 14)
+
+
+
+	.	reduce by rule 14
+
+
+state 33:
+
+	exp : ID LBRACK . exp RBRACK ASSIGN exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 51
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+error:  state 34: shift/reduce conflict (shift SEMICOLON, reduce by rule 30)
+
+state 34:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : lvalue ASSIGN exp .  (reduce by rule 30)
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	EQ	shift 21
+	NEQ	shift 20
+	LT	shift 19
+	LE	shift 18
+	GT	shift 17
+	GE	shift 16
+	AND	shift 15
+	OR	shift 14
+
+
+	.	reduce by rule 30
+
+error:  state 35: shift/reduce conflict (shift SEMICOLON, reduce by rule 27)
+
+state 35:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : exp OR exp .  (reduce by rule 27)
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	EQ	shift 21
+	NEQ	shift 20
+	LT	shift 19
+	LE	shift 18
+	GT	shift 17
+	GE	shift 16
+
+
+	.	reduce by rule 27
+
+error:  state 36: shift/reduce conflict (shift SEMICOLON, reduce by rule 26)
+
+state 36:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp AND exp .  (reduce by rule 26)
+	exp : exp . OR exp 
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	EQ	shift 21
+	NEQ	shift 20
+	LT	shift 19
+	LE	shift 18
+	GT	shift 17
+	GE	shift 16
+
+
+	.	reduce by rule 26
+
+error:  state 37: shift/reduce conflict (shift SEMICOLON, reduce by rule 23)
+
+state 37:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp GE exp .  (reduce by rule 23)
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : exp . SEMICOLON exp 
+
+	EOF	reduce by rule 23
+	SEMICOLON	shift 26
+	RPAREN	reduce by rule 23
+	RBRACK	reduce by rule 23
+	RBRACE	reduce by rule 23
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	AND	reduce by rule 23
+	OR	reduce by rule 23
+	ELSE	reduce by rule 23
+
+
+	.	error
+
+error:  state 38: shift/reduce conflict (shift SEMICOLON, reduce by rule 22)
+
+state 38:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp GT exp .  (reduce by rule 22)
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : exp . SEMICOLON exp 
+
+	EOF	reduce by rule 22
+	SEMICOLON	shift 26
+	RPAREN	reduce by rule 22
+	RBRACK	reduce by rule 22
+	RBRACE	reduce by rule 22
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	AND	reduce by rule 22
+	OR	reduce by rule 22
+	ELSE	reduce by rule 22
+
+
+	.	error
+
+error:  state 39: shift/reduce conflict (shift SEMICOLON, reduce by rule 25)
+
+state 39:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp LE exp .  (reduce by rule 25)
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : exp . SEMICOLON exp 
+
+	EOF	reduce by rule 25
+	SEMICOLON	shift 26
+	RPAREN	reduce by rule 25
+	RBRACK	reduce by rule 25
+	RBRACE	reduce by rule 25
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	AND	reduce by rule 25
+	OR	reduce by rule 25
+	ELSE	reduce by rule 25
+
+
+	.	error
+
+error:  state 40: shift/reduce conflict (shift SEMICOLON, reduce by rule 24)
+
+state 40:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp LT exp .  (reduce by rule 24)
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : exp . SEMICOLON exp 
+
+	EOF	reduce by rule 24
+	SEMICOLON	shift 26
+	RPAREN	reduce by rule 24
+	RBRACK	reduce by rule 24
+	RBRACE	reduce by rule 24
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	AND	reduce by rule 24
+	OR	reduce by rule 24
+	ELSE	reduce by rule 24
+
+
+	.	error
+
+error:  state 41: shift/reduce conflict (shift SEMICOLON, reduce by rule 21)
+
+state 41:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp NEQ exp .  (reduce by rule 21)
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : exp . SEMICOLON exp 
+
+	EOF	reduce by rule 21
+	SEMICOLON	shift 26
+	RPAREN	reduce by rule 21
+	RBRACK	reduce by rule 21
+	RBRACE	reduce by rule 21
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	AND	reduce by rule 21
+	OR	reduce by rule 21
+	ELSE	reduce by rule 21
+
+
+	.	error
+
+error:  state 42: shift/reduce conflict (shift SEMICOLON, reduce by rule 20)
+
+state 42:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp EQ exp .  (reduce by rule 20)
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : exp . SEMICOLON exp 
+
+	EOF	reduce by rule 20
+	SEMICOLON	shift 26
+	RPAREN	reduce by rule 20
+	RBRACK	reduce by rule 20
+	RBRACE	reduce by rule 20
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	AND	reduce by rule 20
+	OR	reduce by rule 20
+	ELSE	reduce by rule 20
+
+
+	.	error
+
+error:  state 43: shift/reduce conflict (shift SEMICOLON, reduce by rule 19)
+
+state 43:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp DIVIDE exp .  (reduce by rule 19)
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+
+
+	.	reduce by rule 19
+
+error:  state 44: shift/reduce conflict (shift SEMICOLON, reduce by rule 18)
+
+state 44:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp TIMES exp .  (reduce by rule 18)
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+
+
+	.	reduce by rule 18
+
+error:  state 45: shift/reduce conflict (shift SEMICOLON, reduce by rule 17)
+
+state 45:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp MINUS exp .  (reduce by rule 17)
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+	TIMES	shift 23
+	DIVIDE	shift 22
+
+
+	.	reduce by rule 17
+
+error:  state 46: shift/reduce conflict (shift SEMICOLON, reduce by rule 16)
+
+state 46:
+
+	exp : exp . PLUS exp 
+	exp : exp PLUS exp .  (reduce by rule 16)
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+	TIMES	shift 23
+	DIVIDE	shift 22
+
+
+	.	reduce by rule 16
+
+error:  state 47: shift/reduce conflict (shift OR, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift AND, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift GE, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift GT, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift LE, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift LT, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift NEQ, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift EQ, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift DIVIDE, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift TIMES, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift MINUS, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift PLUS, reduce by rule 36)
+error:  state 47: shift/reduce conflict (shift SEMICOLON, reduce by rule 36)
+
+state 47:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : exp . SEMICOLON exp 
+	exp : exp SEMICOLON exp .  (reduce by rule 36)
+
+	SEMICOLON	shift 26
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	EQ	shift 21
+	NEQ	shift 20
+	LT	shift 19
+	LE	shift 18
+	GT	shift 17
+	GE	shift 16
+	AND	shift 15
+	OR	shift 14
+
+
+	.	reduce by rule 36
+
+
+state 48:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : WHILE LBRACK exp . RBRACK LBRACE exp RBRACE 
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+	RBRACK	shift 52
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	EQ	shift 21
+	NEQ	shift 20
+	LT	shift 19
+	LE	shift 18
+	GT	shift 17
+	GE	shift 16
+	AND	shift 15
+	OR	shift 14
+
+
+	.	error
+
+
+state 49:
+
+	exp : IF exp ELSE . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 53
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 50:
+
+	exp : LPAREN exp RPAREN .  (reduce by rule 35)
+
+
+
+	.	reduce by rule 35
+
+
+state 51:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : ID LBRACK exp . RBRACK ASSIGN exp 
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+	RBRACK	shift 54
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	EQ	shift 21
+	NEQ	shift 20
+	LT	shift 19
+	LE	shift 18
+	GT	shift 17
+	GE	shift 16
+	AND	shift 15
+	OR	shift 14
+
+
+	.	error
+
+
+state 52:
+
+	exp : WHILE LBRACK exp RBRACK . LBRACE exp RBRACE 
+
+	LBRACE	shift 55
+
+
+	.	error
+
+error:  state 53: shift/reduce conflict (shift SEMICOLON, reduce by rule 31)
+
+state 53:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : IF exp ELSE exp .  (reduce by rule 31)
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	EQ	shift 21
+	NEQ	shift 20
+	LT	shift 19
+	LE	shift 18
+	GT	shift 17
+	GE	shift 16
+	AND	shift 15
+	OR	shift 14
+
+
+	.	reduce by rule 31
+
+
+state 54:
+
+	exp : ID LBRACK exp RBRACK . ASSIGN exp 
+
+	ASSIGN	shift 56
+
+
+	.	error
+
+
+state 55:
+
+	exp : WHILE LBRACK exp RBRACK LBRACE . exp RBRACE 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 57
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 56:
+
+	exp : ID LBRACK exp RBRACK ASSIGN . exp 
+
+	ID	shift 12
+	INT	shift 11
+	STRING	shift 10
+	LPAREN	shift 9
+	LBRACE	shift 8
+	MINUS	shift 7
+	IF	shift 6
+	WHILE	shift 5
+	BREAK	shift 4
+
+	exp	goto 58
+	lvalue	goto 2
+	lvalue_not_id	goto 1
+
+	.	error
+
+
+state 57:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : WHILE LBRACK exp RBRACK LBRACE exp . RBRACE 
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+	RBRACE	shift 59
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	EQ	shift 21
+	NEQ	shift 20
+	LT	shift 19
+	LE	shift 18
+	GT	shift 17
+	GE	shift 16
+	AND	shift 15
+	OR	shift 14
+
+
+	.	error
+
+error:  state 58: shift/reduce conflict (shift SEMICOLON, reduce by rule 28)
+
+state 58:
+
+	exp : exp . PLUS exp 
+	exp : exp . MINUS exp 
+	exp : exp . TIMES exp 
+	exp : exp . DIVIDE exp 
+	exp : exp . EQ exp 
+	exp : exp . NEQ exp 
+	exp : exp . GT exp 
+	exp : exp . GE exp 
+	exp : exp . LT exp 
+	exp : exp . LE exp 
+	exp : exp . AND exp 
+	exp : exp . OR exp 
+	exp : ID LBRACK exp RBRACK ASSIGN exp .  (reduce by rule 28)
+	exp : exp . SEMICOLON exp 
+
+	SEMICOLON	shift 26
+	PLUS	shift 25
+	MINUS	shift 24
+	TIMES	shift 23
+	DIVIDE	shift 22
+	EQ	shift 21
+	NEQ	shift 20
+	LT	shift 19
+	LE	shift 18
+	GT	shift 17
+	GE	shift 16
+	AND	shift 15
+	OR	shift 14
+
+
+	.	reduce by rule 28
+
+
+state 59:
+
+	exp : WHILE LBRACK exp RBRACK LBRACE exp RBRACE .  (reduce by rule 33)
+
+
+
+	.	reduce by rule 33
+
+
+state 60:
+
+
+	EOF	accept
+
+
+	.	error
+
+264 of 514 action table entries left after compaction
+70 goto table entries

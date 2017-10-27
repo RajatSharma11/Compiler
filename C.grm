@@ -25,6 +25,7 @@ structure A = Absyn
   empty
   | dec of A.dec | decs of A.dec list |fundec of A.dec
   | exp of A.exp | explist of A.exp list | vardec of A.dec 
+  | lvalue of A.var | lvalue_not_id of A.var 
   | program of A.exp
 
 
@@ -85,7 +86,7 @@ exp : ID                                      (A.VarExp (A.SimpleVar (Symbol.sym
     | exp LE exp                              (A.OpExp {left = exp1, oper = A.LeOp, right = exp2, pos = LEleft})
     | exp AND exp                             (A.IfExp { test = exp1, then' = exp2, else' = SOME (A.IntExp 0), pos = 						      ANDleft })
     | exp OR exp                              (A.IfExp { test = exp1, then' = A.IntExp 1, else' = SOME exp2, pos = ORleft })
-    | ID LBRACK exp RBRACK OF exp             (A.ArrayExp { typ = Symbol.symbol ID, size = exp1, init = exp2, pos = 						      LBRACKright })
+    | ID LBRACK exp RBRACK ASSIGN exp             (A.ArrayExp { typ = Symbol.symbol ID, size = exp1, init = exp2, pos = 						      LBRACKright })
     | lvalue_not_id                           (A.VarExp lvalue_not_id)
     | lvalue ASSIGN exp                       (A.AssignExp { var = lvalue, exp = exp, pos = ASSIGNright })
     | IF exp ELSE exp               	      (A.IfExp { test = exp1, else' = SOME exp2, pos = IFright })
