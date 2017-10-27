@@ -42,14 +42,16 @@ QUOTE=[\"];
 ")"     => (Tokens.RPAREN(yypos,yypos+1));
 "["     => (Tokens.LBRACK(yypos,yypos+1));
 "]"     => (Tokens.RBRACK(yypos,yypos+1));
+"return" => (Tokens.RETURN(yypos, yypos + 6));
+"for"      => (Tokens.FOR(yypos,yypos+3));
+"while"    => (Tokens.WHILE(yypos,yypos+5));
+"break" 	 => (Tokens.BREAK(yypos,yypos+5));
+"continue" => (Tokens.BREAK(yypos,yypos+8));
+"if" 	 => (Tokens.IF(yypos,yypos+2));
+"else"     => (Tokens.ELSE(yypos,yypos+4));
 
-for      => (Tokens.FOR(yypos,yypos+3));
-while    => (Tokens.WHILE(yypos,yypos+5));
-break 	 => (Tokens.BREAK(yypos,yypos+5));
-continue => (Tokens.BREAK(yypos,yypos+8));
-if 	 => (Tokens.IF(yypos,yypos+2));
-else     => (Tokens.ELSE(yypos,yypos+4));
 
 {COMMENT} => (continue());
 {IDENTIFIER} => (Tokens.ID(yytext,yypos,yypos+size yytext));
 {DIGIT} => (Tokens.INT(str2int yytext,yypos,yypos+size yytext));
+[\ \t\b\f\r]+ => (continue());

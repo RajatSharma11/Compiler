@@ -23,7 +23,7 @@ structure A = Absyn
 
 %nonterm  
   empty
-  | dec of A.dec | decs of A.dec list |fundec of A.dec
+  | dec of A.dec |fundec of A.dec
   | exp of A.exp | explist of A.exp list | vardec of A.dec 
   | lvalue of A.var | lvalue_not_id of A.var 
   | program of A.exp
@@ -51,12 +51,7 @@ structure A = Absyn
 
 program : exp (exp)
 empty :  ()
-decs : dec                                    ([dec])
-     | decs dec                               (case (dec, decs) of
-                                              (A.TypeDec [t], A.TypeDec ts :: ds) => A.TypeDec (t :: ts) :: ds
-                                              | (A.FunctionDec [f], A.FunctionDec fs :: ds) => A.FunctionDec (f :: fs) :: ds
-                                              | (d, ds) => d :: ds
-					      )        
+       
 dec : vardec 				      (vardec)
     | fundec				      (fundec)
 
