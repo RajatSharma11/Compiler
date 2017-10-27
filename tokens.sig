@@ -1,5 +1,5 @@
 signature C_TOKENS = sig
-type linenum (*int*)
+type linenum = int
 type token
 val PLUS:  linenum * linenum -> token
 val MINUS:  linenum * linenum -> token
@@ -8,6 +8,7 @@ val DIVIDE: linenum * linenum -> token
 val ASSIGN:  linenum * linenum -> token
 val OR:  linenum * linenum -> token
 val AND:  linenum * linenum -> token
+val VAR: linenum * linenum -> token
 val GE:  linenum * linenum -> token
 val GT:  linenum * linenum -> token
 val LE:  linenum * linenum -> token
@@ -30,5 +31,6 @@ val COMMA:  linenum * linenum -> token
 val STRING: (string) *  linenum * linenum -> token
 val INT: (int) *  linenum * linenum -> token
 val ID: (string) *  linenum * linenum -> token
+val RETURN: linenum * linenum -> token
 val EOF:  linenum * linenum -> token
 end

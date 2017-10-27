@@ -3,6 +3,7 @@ struct
   fun parse filename =
       let val file = TextIO.openIn filename
 	  fun get _ = TextIO.input file
+	  
 	  val lexer = Mlex.makeLexer get
 	  fun do_it() =
 	      let val t = lexer()

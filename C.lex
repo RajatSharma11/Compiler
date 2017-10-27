@@ -1,22 +1,14 @@
 type pos = int
-type svalue = Tokens.svalue
-type ('a,'b) token = ('a,'b) Tokens.token
-type lexresult = (svalue,pos) token
+type lexresult = Tokens.token
 
 val lineNum = ErrorMsg.lineNum
 val linePos = ErrorMsg.linePos
 fun err(p1,p2) = ErrorMsg.error p1
 
-fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end
 fun str2int(s) = foldl (fn(a,r) => ord(a)-ord(#"0")+10*r) 0 (explode s)
+fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end 
 
 %%
-COMMENT=\/\*.*\*\/;
-DIGIT=[0-9]+;
-IDENTIFIER=[a-zA-Z][a-zA-Z0-9]*;
-QUOTE=[\"];
-
-%header (functor CLexFun (structure Tokens:C_TOKENS));
 %%
 
 \n	=> (lineNum := !lineNum+1; linePos := yypos :: !linePos; continue());
@@ -42,6 +34,7 @@ QUOTE=[\"];
 ")"     => (Tokens.RPAREN(yypos,yypos+1));
 "["     => (Tokens.LBRACK(yypos,yypos+1));
 "]"     => (Tokens.RBRACK(yypos,yypos+1));
+"var"   => (Tokens.VAR(yypos, yypos + 3));
 "return" => (Tokens.RETURN(yypos, yypos + 6));
 "for"      => (Tokens.FOR(yypos,yypos+3));
 "while"    => (Tokens.WHILE(yypos,yypos+5));
@@ -49,9 +42,9 @@ QUOTE=[\"];
 "continue" => (Tokens.BREAK(yypos,yypos+8));
 "if" 	 => (Tokens.IF(yypos,yypos+2));
 "else"     => (Tokens.ELSE(yypos,yypos+4));
+\"([a-zA-Z0-9_\ ]+)\" => (Tokens.STRING(yytext, yypos, yypos + size yytext));
 
-
-{COMMENT} => (continue());
-{IDENTIFIER} => (Tokens.ID(yytext,yypos,yypos+size yytext));
-{DIGIT} => (Tokens.INT(str2int yytext,yypos,yypos+size yytext));
+[0-9]+ => (Tokens.INT(str2int yytext, yypos, yypos + size yytext));
+[a-zA-Z_]+ => (Tokens.ID(yytext, yypos, yypos + size yytext));
 [\ \t\b\f\r]+ => (continue());
+. => (ErrorMsg.error yypos ("illegal character " ^ yytext); continue());
