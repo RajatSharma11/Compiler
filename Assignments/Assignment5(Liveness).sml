@@ -158,3 +158,19 @@ fun fix_point g inst ud (i,o) update  = if(update=0) then
 
 val i_o = fix_point graph inst ud (MAPT.empty,MAPT.empty) 1
 
+fun mGraph [] graph inst = graph
+| mGraph (x::xs) graph inst = mGraph xs (MAPT.insert(graph,x,inst)) inst 
+
+fun cGraph [] r (u,d) graph lst inst = ((u,d),graph,lst)
+| cGraph (x::xs) r (u,d) graph lst inst = let
+						val u2 = genSet x r
+						val d2 = killSet x r
+						val graph = mGraph x graph inst
+						
+					in
+						cGraph  xs r (MAPT.insert(u,inst,u2),MAPT.insert(d,inst,d2)) graph (inst::lst)(inst+1)			
+					end
+
+val cg = cGraph [[1,2],[3],[4]] ud (MAPT.empty,MAPT.empty) (MAPT.empty) [] 1
+fun emptyGraph [] g = g
+| emptyGraph (x::xs) g = emptyGraph xs (MAPT.insert(g,x,IntSet.empty))
