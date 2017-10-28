@@ -179,7 +179,7 @@ val bd = #2 cg;
 fun createSet [] s bd = s
 | createSet (x::xs) s bd = createSet xs (IntSet.add(s,valOf(MAPT.find(bd,x)))) bd;
 
-fun bmGraph [] (pred,succ) bd bGraph = bGraph;		
+fun bmGraph [] (pred,succ) bd bGraph = bGraph
 | bmGraph (x::xs) (pred,succ) bd bGraph = let
 					val predecessor = IntSet.listItems(intValue(MAPT.find(pred,List.nth(x,0))))
 					val successor = IntSet.listItems(intValue(MAPT.find(succ,List.last x)))
