@@ -1,15 +1,11 @@
-structure A = Absyn
-
 %%
 
-%pos int
-%verbose
-%start program
 %eop EOF
-%noshift EOF
-
+%verbose
+%pure
+%name Expr
 %term
-    EOF 
+  EOF 
   | ID of string
   | INT of int | STRING of string 
   | COMMA | SEMICOLON | LPAREN | RPAREN | LBRACK | RBRACK 
@@ -21,25 +17,16 @@ structure A = Absyn
   | WHILE | FOR | BREAK | CONTINUE
   | UMINUS
 
-%nonterm  
-  empty
-  | dec of A.dec |fundec of A.dec
-  | exp of A.exp | explist of A.exp list | vardec of A.dec 
-  | lvalue of A.var | lvalue_not_id of A.var 
-  | program of A.exp
-
-
+%nonterminal
+  EXPRESSION of Ast.Expression
+  |STATEMENT of Ast.Statement
+  |STATEMENTS of Ast.Statement list
+  | CODE of Ast.Statement list
 
 %name C
 
-%keyword WHILE FOR BREAK IF ELSE CONTINUE
-%prefer ELSE LPAREN
-%value ID ("bogus")
-%value INT (1)
-%value STRING ("")
+%keyword WHILE FOR BREAK IF ELSE CONTINUE PRINT SCANF
 
-
-%nonassoc ELSE
 %nonassoc ASSIGN
 %left AND OR
 %nonassoc EQ NEQ LT GT LE GE
@@ -47,55 +34,13 @@ structure A = Absyn
 %left TIMES DIVIDE
 %left UMINUS
 
+%pos int
+
 %%
 
-program : exp (exp)
-empty :  ()
-       
-dec : vardec 				      (vardec)
-    | fundec				      (fundec)
+CODE : STATEMENTS        (STATEMENTS)
+     | STATEMENTS EOF	 (STATEMENTS) 
 
 
-vardec : ID ASSIGN exp                    (A.VarDec { name = Symbol.symbol ID, typ = NONE, init = exp, pos = VARright, 						      escape = ref true })
-
-
-explist : empty                               (nil)
-        | exp                                 (exp :: nil)
-        | explist COMMA exp                   (exp :: explist)
-
-exp : ID                                      (A.VarExp (A.SimpleVar (Symbol.symbol ID, IDleft)))
-    | MINUS exp %prec UMINUS                  (A.OpExp {left = A.IntExp 0, oper = A.MinusOp, right = exp, pos = MINUSright})
-    | INT                                     (A.IntExp INT)
-    | STRING                                  (A.StringExp (STRING, STRINGright))
-    | LPAREN RPAREN                           (A.SeqExp [])
-    | LBRACE RBRACE                           (A.SeqExp {})
-    | exp PLUS exp                            (A.OpExp {left = exp1, oper = A.PlusOp, right = exp2, pos = PLUSleft})
-    | exp MINUS exp                           (A.OpExp {left = exp1, oper = A.MinusOp, right = exp2, pos = MINUSleft})
-    | exp TIMES exp                           (A.OpExp {left = exp1, oper = A.TimesOp, right = exp2, pos = TIMESleft})
-    | exp DIVIDE exp                          (A.OpExp {left = exp1, oper = A.DivideOp, right = exp2, pos = DIVIDEleft})
-    | exp EQ exp                              (A.OpExp {left = exp1, oper = A.EqOp, right = exp2, pos = EQleft})
-    | exp NEQ exp                             (A.OpExp {left = exp1, oper = A.NeqOp, right = exp2, pos = NEQleft})
-    | exp GT exp                              (A.OpExp {left = exp1, oper = A.GtOp, right = exp2, pos = GTleft})
-    | exp GE exp                              (A.OpExp {left = exp1, oper = A.GeOp, right = exp2, pos = GEleft})
-    | exp LT exp                              (A.OpExp {left = exp1, oper = A.LtOp, right = exp2, pos = LTleft})
-    | exp LE exp                              (A.OpExp {left = exp1, oper = A.LeOp, right = exp2, pos = LEleft})
-    | exp AND exp                             (A.IfExp { test = exp1, then' = exp2, else' = SOME (A.IntExp 0), pos = 						      ANDleft })
-    | exp OR exp                              (A.IfExp { test = exp1, then' = A.IntExp 1, else' = SOME exp2, pos = ORleft })
-    | ID LBRACK exp RBRACK ASSIGN exp             (A.ArrayExp { typ = Symbol.symbol ID, size = exp1, init = exp2, pos = 						      LBRACKright })
-    | lvalue_not_id                           (A.VarExp lvalue_not_id)
-    | lvalue ASSIGN exp                       (A.AssignExp { var = lvalue, exp = exp, pos = ASSIGNright })
-    | IF exp ELSE exp               	      (A.IfExp { test = exp1, else' = SOME exp2, pos = IFright })
-    | IF exp                                  (A.IfExp { test = exp1, else' = NONE, pos = IFright })
-    | WHILE LBRACK exp RBRACK LBRACE exp RBRACE     (A.WhileExp { test = exp1, body = exp2, pos = WHILEright })
-    | BREAK                                   (A.BreakExp BREAKright)
-    | LPAREN exp RPAREN                       (exp)
-    | exp SEMICOLON exp                       (case exp2 of
-                                               A.SeqExp [] => A.SeqExp ((exp1, exp1right) :: [ (A.SeqExp [], exp2left) ])
-                                               | A.SeqExp exps => A.SeqExp ((exp1, exp1right) :: exps)
-                                               | _ => A.SeqExp [ (exp1, exp1right), (exp2, exp2right) ]
-					      )
-	(* For loop and function declaration not added *)
-
-                                      
 
 
