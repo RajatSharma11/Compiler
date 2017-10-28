@@ -84,3 +84,77 @@ fun addEdge (u,v) x y = let
 	in
 		(p,q)
 	end
+fun add1 d x y = 	(*From x to y *)
+	let 
+		val s1 = strValue(MAPT.find(d,x))
+		val s2 = StringSet.add (s1,y)
+		val d = MAPT.insert(d,x,s2)
+	in
+		d
+	end
+
+fun add2 d vertex = 
+	let
+		val d = MAPT.insert(d,vertex,StringSet.empty)
+		
+	in
+		d
+	end
+
+val graph = (MAPT.empty,MAPT.empty)
+val graph = addVertex graph 1
+val graph = addVertex graph 2
+val graph = addVertex graph 3
+val graph = addVertex graph 4
+
+val graph = addEdge graph 1 2
+val graph = addEdge graph 2 3
+val graph = addEdge graph 2 4
+val inst=[1,2,3,4]
+val u = MAPT.empty
+val d = MAPT.empty
+val u = add2 u 1
+val u = add2 u 2
+val u = add2 u 3
+val u = add2 u 4
+
+val u = add1 u 1 "c"
+val u = add1 u 1 "d"
+val u = add1 u 2 "a"
+val u = add1 u 2 "d"
+val u = add1 u 3 "a"
+val u = add1 u 3 "d"
+val u = add1 u 4 "b"
+val u = add1 u 4 "c"
+
+val d = add2 d 1
+val d = add2 d 2
+val d = add2 d 3
+val d = add2 d 4
+
+val d = add1 d 1 "b"
+val d = add1 d 2 "b"
+val d = add1 d 3 "a"
+val d = add1 d 4 "d"
+val ud = (u,d)
+
+fun fix_point2  (pred,succ) [] ud (i,o) update  = ((i,o),update)
+| fix_point2 (pred,succ) (x::xs) ud (i,o) update  = let
+						val io = liveness succ x ud (i,o)
+						val change = #3 io
+						in
+							fix_point2 (pred,succ) (xs) ud (#1 io,#2 io) (update + change)
+						end
+								
+fun fix_point g inst ud (i,o) update  = if(update=0) then
+						(i,o)
+				     else
+				     		let 
+				     			val io = fix_point2 g inst ud (i,o) 0 
+				     			val change = #2 io
+				     		in
+				     			fix_point g inst ud (#1 io) change
+				     		end
+
+val i_o = fix_point graph inst ud (MAPT.empty,MAPT.empty) 1
+
