@@ -63,3 +63,24 @@ fun genSet [] (r:ud) = StringSet.empty
 			in
 				StringSet.union(s2,s3)
 			end
+
+fun addVertex (u,v) vertex = let
+		val u = MAPT.insert(u,vertex,IntSet.empty)
+		val v = MAPT.insert(v,vertex,IntSet.empty)
+	in
+		(u,v)
+	end
+fun addEdge2 l x y = let 
+		val s1 = intValue(MAPT.find(l,x))
+		val s2 = IntSet.add (s1,y)
+		val s3 = MAPT.insert(l,x,s2)
+	in
+		s3
+	end
+
+fun addEdge (u,v) x y = let 
+		val p = addEdge2 u y x
+		val q = addEdge2 v x y 
+	in
+		(p,q)
+	end
