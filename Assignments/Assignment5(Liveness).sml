@@ -38,3 +38,12 @@ if(w andalso z) then
 else
 (MAPT.insert(i,inst,x),MAPT.insert(out,inst,y),1)
 end
+
+fun killSet [] (r:ud) = Stringset.empty
+	| killSet [x] (r:ud) = vstr(keyMap.find(#2 r,x))
+	| killSet (x::xs) (r:ud) = let
+					val s1 = killSet(xs) r
+					val s2 = strValue(MAPT.find(#2 r,x))
+				in
+					Stringset.union(s1,s2)
+				end
