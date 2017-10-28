@@ -3,49 +3,6 @@
 %eop EOF
 %verbose
 %pure
-%name Expr
-%term
-  EOF 
-  | ID of string
-  | INT of int | STRING of string 
-  | COMMA | SEMICOLON | LPAREN | RPAREN | LBRACK | RBRACK 
-  | LBRACE | RBRACE
-  | PLUS | MINUS | TIMES | DIVIDE 
-  | EQ | NEQ | LT | LE | GT | GE
-  | AND | OR | ASSIGN
-  | IF | ELSE 
-  | WHILE | FOR | BREAK | CONTINUE
-  | UMINUS
-
-%nonterminal
-  EXPRESSION of Ast.Expression
-  |STATEMENT of Ast.Statement
-  |STATEMENTS of Ast.Statement list
-  | CODE of Ast.Statement list
-
-%name C
-
-%keyword WHILE FOR BREAK IF ELSE CONTINUE PRINT SCANF
-
-%nonassoc ASSIGN
-%left AND OR
-%nonassoc EQ NEQ LT GT LE GE
-%left PLUS MINUS
-%left TIMES DIVIDE
-%left UMINUS
-
-%pos int
-
-%%
-
-CODE : STATEMENTS        (STATEMENTS)
-     | STATEMENTS EOF	 (STATEMENTS) 
-     
-%%
-
-%eop EOF
-%verbose
-%pure
 
 %term
   EOF 
