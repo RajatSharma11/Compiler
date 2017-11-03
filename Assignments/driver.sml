@@ -1,5 +1,6 @@
 structure Parse =
 struct 
+structure MLex  = CLexFun(structure Tokens = CLrVals.Tokens)
   fun parse filename =
       let val file = TextIO.openIn filename
 	  fun get _ = TextIO.input file

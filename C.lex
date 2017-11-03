@@ -1,5 +1,7 @@
 type pos = int
-type lexresult = Tokens.token
+type svalue = Tokens.svalue
+type ('a,'b) token = ('a,'b) Tokens.token
+type lexresult = (svalue,pos) token
 
 val lineNum = ErrorMsg.lineNum
 val linePos = ErrorMsg.linePos
@@ -14,6 +16,7 @@ fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end
 	IDENTIFIER=[a-zA-Z][a-zA-Z0-9]*;
 	QUOTE=[\"];
 	SPACE=[\ \t]+;
+	%header (functor CLexFun(structure Tokens: C_TOKENS));
 %%
 
 \n	=> (lineNum := !lineNum+1; linePos := yypos :: !linePos; continue());
@@ -46,7 +49,7 @@ fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end
 "printf"   => (Tokens.PRINTF(yypos,yypos+5));
 "scanf"	  => (Tokens.SCANF(yypos,yypos+5));
 "break" 	 => (Tokens.BREAK(yypos,yypos+5));
-"continue" => (Tokens.BREAK(yypos,yypos+8));
+"continue" => (Tokens.CONTINUE(yypos,yypos+8));
 "if" 	 => (Tokens.IF(yypos,yypos+2));
 "else"     => (Tokens.ELSE(yypos,yypos+4));
 

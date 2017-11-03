@@ -2,10 +2,14 @@ signature C_TOKENS =
 sig
 type ('a,'b) token
 type svalue
-val UMINUS:  'a * 'a -> (svalue,'a) token
+val SCANF:  'a * 'a -> (svalue,'a) token
+val PRINTF:  'a * 'a -> (svalue,'a) token
+val NEWLINE:  'a * 'a -> (svalue,'a) token
+val VAR:  'a * 'a -> (svalue,'a) token
+val RETURN:  'a * 'a -> (svalue,'a) token
+val FOR:  'a * 'a -> (svalue,'a) token
 val CONTINUE:  'a * 'a -> (svalue,'a) token
 val BREAK:  'a * 'a -> (svalue,'a) token
-val FOR:  'a * 'a -> (svalue,'a) token
 val WHILE:  'a * 'a -> (svalue,'a) token
 val ELSE:  'a * 'a -> (svalue,'a) token
 val IF:  'a * 'a -> (svalue,'a) token
@@ -30,7 +34,6 @@ val RPAREN:  'a * 'a -> (svalue,'a) token
 val LPAREN:  'a * 'a -> (svalue,'a) token
 val SEMICOLON:  'a * 'a -> (svalue,'a) token
 val COMMA:  'a * 'a -> (svalue,'a) token
-val STRING: (string) *  'a * 'a -> (svalue,'a) token
 val INT: (int) *  'a * 'a -> (svalue,'a) token
 val ID: (string) *  'a * 'a -> (svalue,'a) token
 val EOF:  'a * 'a -> (svalue,'a) token
