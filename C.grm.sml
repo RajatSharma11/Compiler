@@ -116,14 +116,14 @@ val gotoT =
 \\000\000\
 \\000\000\
 \\000\000\
-\\002\000\040\000\000\000\
-\\002\000\041\000\000\000\
+\\002\000\002\000\003\000\040\000\000\000\
+\\002\000\002\000\003\000\041\000\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
-\\002\000\046\000\000\000\
+\\002\000\002\000\003\000\046\000\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
@@ -300,24 +300,24 @@ MlyValue.ID ID, ID1left, _)) :: rest671)) => let val  result =
 MlyValue.STATEMENT (Ast.Assign (ID,ID))
  in ( LrTable.NT 1, ( result, ID1left, SEMICOLON1right), rest671)
 end
-|  ( 6, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.STATEMENT 
-STATEMENT, _, _)) :: _ :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION,
+|  ( 6, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.STATEMENTS 
+STATEMENTS, _, _)) :: _ :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION,
  _, _)) :: _ :: ( _, ( _, IF1left, _)) :: rest671)) => let val  result
- = MlyValue.STATEMENT ( Ast.If (EXPRESSION,STATEMENT) )
+ = MlyValue.STATEMENT ( Ast.If (EXPRESSION,STATEMENTS) )
  in ( LrTable.NT 1, ( result, IF1left, RBRACE1right), rest671)
 end
-|  ( 7, ( ( _, ( _, _, RBRACE2right)) :: ( _, ( MlyValue.STATEMENT 
-STATEMENT2, _, _)) :: _ :: _ :: _ :: ( _, ( MlyValue.STATEMENT 
-STATEMENT1, _, _)) :: _ :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION,
- _, _)) :: _ :: ( _, ( _, IF1left, _)) :: rest671)) => let val  result
- = MlyValue.STATEMENT (
- Ast.IfElse  (EXPRESSION,STATEMENT1,STATEMENT2) )
+|  ( 7, ( ( _, ( _, _, RBRACE2right)) :: ( _, ( MlyValue.STATEMENTS 
+STATEMENTS2, _, _)) :: _ :: _ :: _ :: ( _, ( MlyValue.STATEMENTS 
+STATEMENTS1, _, _)) :: _ :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION
+, _, _)) :: _ :: ( _, ( _, IF1left, _)) :: rest671)) => let val  
+result = MlyValue.STATEMENT (
+ Ast.IfElse  (EXPRESSION,STATEMENTS1,STATEMENTS2) )
  in ( LrTable.NT 1, ( result, IF1left, RBRACE2right), rest671)
 end
-|  ( 8, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.STATEMENT 
-STATEMENT, _, _)) :: _ :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION,
+|  ( 8, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.STATEMENTS 
+STATEMENTS, _, _)) :: _ :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION,
  _, _)) :: _ :: ( _, ( _, WHILE1left, _)) :: rest671)) => let val  
-result = MlyValue.STATEMENT ( Ast.While (EXPRESSION,STATEMENT))
+result = MlyValue.STATEMENT ( Ast.While (EXPRESSION,STATEMENTS))
  in ( LrTable.NT 1, ( result, WHILE1left, RBRACE1right), rest671)
 end
 |  ( 9, ( ( _, ( _, _, SEMICOLON1right)) :: _ :: ( _, ( MlyValue.ID ID

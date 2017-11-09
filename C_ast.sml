@@ -5,9 +5,9 @@ datatype Expression = Const of int | Operation of Expression * Operator * Expres
 datatype Statement = Int of string
 | Assignment of string * Expression
 | Assign of string * string
-| If of Expression * Statement
-| IfElse of Expression * Statement * Statement
-| While of Expression * Statement
+| If of Expression * Statement list
+| IfElse of Expression * Statement list * Statement list
+| While of Expression * Statement list
 | Scanf of string
 | Printf of string
 
