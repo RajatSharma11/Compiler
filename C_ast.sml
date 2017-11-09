@@ -3,8 +3,9 @@ struct
 datatype types =INT 
 datatype Operator = Plus | Minus | Division | Times;
 datatype RelationalOp = Lt | Gt | Eq | Neq | Le | Ge;
-datatype Expression = String of string | Const of int | Operation of Expression * Operator * Expression;
-datatype ConditionalExpr = rOperation of Expression * RelationalOp * Expression
+datatype LogicalOp = And | Or
+datatype Expression = Var of string | Const of int | Operation of Expression * Operator * Expression| String of string;
+datatype ConditionalExpr = rOperation of Expression * RelationalOp * Expression | lOperation of ConditionalExpr * LogicalOp * ConditionalExpr
 
 datatype Statement = Assignment of string * Expression
 | Assign of string * string
@@ -31,4 +32,7 @@ fun lte a b = rOperation(a, Le, b)
 fun gte a b = rOperation(a, Ge, b)
 fun eq a b = rOperation(a, Eq, b)
 fun neq a b = rOperation(a, Neq, b)
+
+fun aNd a b = lOperation(a, And, b)
+fun oR a b = lOperation(a, Or, b)
 end;

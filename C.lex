@@ -15,6 +15,7 @@ fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end
 	DIGIT=[0-9]+;
 	IDENTIFIER=[a-zA-Z][a-zA-Z0-9]*;
 	QUOTE=[\"];
+	NONQUOTE=[^\"];
 	SPACE=[\ \t]+;
 	%header (functor CLexFun(structure Tokens: Comp_TOKENS));
 %%
@@ -58,4 +59,5 @@ fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end
 {DIGIT} => (Tokens.CONST(str2int yytext, yypos, yypos + size yytext));
 {IDENTIFIER} => (Tokens.ID(yytext, yypos, yypos + size yytext));
 {SPACE} => (continue());
+QUOTE}{NONQUOTE}*{QUOTE} => (Tokens.STRING(yytext,yypos,yypos+size yytext));
 . => (ErrorMsg.error yypos ("illegal character " ^ yytext); continue());
