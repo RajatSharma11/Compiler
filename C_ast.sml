@@ -3,7 +3,7 @@ struct
 datatype types =INT 
 datatype Operator = Plus | Minus | Division | Times;
 datatype RelationalOp = Lt | Gt | Eq | Neq | Le | Ge;
-datatype Expression = String of string | Int of int | Operation of Expression * Operator * Expression;
+datatype Expression = String of string | Const of int | Operation of Expression * Operator * Expression;
 datatype ConditionalExpr = rOperation of Expression * RelationalOp * Expression
 
 datatype Statement = Assignment of string * Expression
