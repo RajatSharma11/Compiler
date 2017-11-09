@@ -4,7 +4,6 @@ type ('a,'b) token
 type svalue
 val SCANF:  'a * 'a -> (svalue,'a) token
 val PRINTF:  'a * 'a -> (svalue,'a) token
-val NEWLINE:  'a * 'a -> (svalue,'a) token
 val VAR:  'a * 'a -> (svalue,'a) token
 val RETURN:  'a * 'a -> (svalue,'a) token
 val FOR:  'a * 'a -> (svalue,'a) token
