@@ -2,13 +2,15 @@ structure Ast =
 struct 
 datatype types =INT 
 datatype Operator = Plus | Minus | Division | Times;
-datatype Expression = Const of int | Operation of Expression * Operator * Expression;
-datatype Statement = Int of string
-| Assignment of string * Expression
+datatype RelationalOp = Lt | Gt | Eq | Neq | Le | Ge;
+datatype Expression = String of string | Int of int | Operation of Expression * Operator * Expression;
+datatype ConditionalExpr = rOperation of Expression * RelationalOp * Expression
+
+datatype Statement = Assignment of string * Expression
 | Assign of string * string
-| If of Expression * Statement list
-| IfElse of Expression * Statement list * Statement list
-| While of Expression * Statement list
+| If of ConditionalExpr * Statement list
+| IfElse of ConditionalExpr * Statement list * Statement list
+| While of ConditionalExpr * Statement list
 | Scanf of string
 | Printf of string
 | Decl of types * string * Expression
@@ -22,4 +24,11 @@ fun plus a b = Operation(a, Plus, b)
 fun minus a b = Operation(a, Minus, b)
 fun mul a b = Operation(a, Times, b)
 fun divi a b = Operation(a, Division, b)
+
+fun lt a b = rOperation(a, Lt, b)
+fun gt a b = rOperation(a, Gt, b)
+fun lte a b = rOperation(a, Le, b)
+fun gte a b = rOperation(a, Ge, b)
+fun eq a b = rOperation(a, Eq, b)
+fun neq a b = rOperation(a, Neq, b)
 end;
