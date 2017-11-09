@@ -1,4 +1,4 @@
-a = 10;
+ a = 10;
 scanf(a);
 printf(a);
 while(10)
@@ -20,3 +20,4 @@ else
 	e=a;
 	g = 14;
 }
+
