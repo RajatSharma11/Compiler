@@ -18,80 +18,79 @@ val table=let val actionRows =
 \\001\000\001\000\000\000\000\000\
 \\001\000\002\000\009\000\025\000\008\000\027\000\007\000\033\000\006\000\
 \\034\000\005\000\000\000\
+\\001\000\002\000\016\000\000\000\
 \\001\000\002\000\017\000\000\000\
-\\001\000\002\000\018\000\000\000\
-\\001\000\002\000\023\000\003\000\020\000\000\000\
-\\001\000\003\000\020\000\000\000\
-\\001\000\005\000\016\000\024\000\015\000\000\000\
-\\001\000\005\000\032\000\012\000\029\000\013\000\028\000\014\000\027\000\
-\\015\000\026\000\000\000\
-\\001\000\005\000\033\000\000\000\
-\\001\000\005\000\034\000\000\000\
-\\001\000\005\000\035\000\000\000\
+\\001\000\002\000\021\000\003\000\020\000\000\000\
+\\001\000\002\000\024\000\003\000\020\000\000\000\
+\\001\000\005\000\039\000\012\000\037\000\013\000\036\000\014\000\035\000\
+\\015\000\034\000\000\000\
+\\001\000\005\000\041\000\000\000\
+\\001\000\005\000\042\000\000\000\
 \\001\000\006\000\011\000\000\000\
 \\001\000\006\000\012\000\000\000\
 \\001\000\006\000\013\000\000\000\
 \\001\000\006\000\014\000\000\000\
-\\001\000\007\000\024\000\000\000\
 \\001\000\007\000\025\000\000\000\
-\\001\000\007\000\030\000\012\000\029\000\013\000\028\000\014\000\027\000\
-\\015\000\026\000\000\000\
-\\001\000\007\000\031\000\012\000\029\000\013\000\028\000\014\000\027\000\
-\\015\000\026\000\000\000\
-\\001\000\010\000\040\000\000\000\
-\\001\000\010\000\041\000\000\000\
-\\001\000\010\000\047\000\000\000\
-\\001\000\011\000\044\000\000\000\
-\\001\000\011\000\045\000\000\000\
-\\001\000\011\000\049\000\000\000\
-\\051\000\000\000\
-\\052\000\002\000\009\000\025\000\008\000\027\000\007\000\033\000\006\000\
+\\001\000\007\000\026\000\000\000\
+\\001\000\007\000\027\000\000\000\
+\\001\000\007\000\038\000\000\000\
+\\001\000\010\000\043\000\000\000\
+\\001\000\010\000\054\000\000\000\
+\\001\000\010\000\060\000\000\000\
+\\001\000\011\000\057\000\000\000\
+\\001\000\011\000\058\000\000\000\
+\\001\000\011\000\062\000\000\000\
+\\001\000\012\000\037\000\013\000\036\000\014\000\035\000\015\000\034\000\
+\\016\000\033\000\017\000\032\000\018\000\031\000\019\000\030\000\
+\\020\000\029\000\021\000\028\000\000\000\
+\\001\000\024\000\015\000\000\000\
+\\064\000\000\000\
+\\065\000\002\000\009\000\025\000\008\000\027\000\007\000\033\000\006\000\
 \\034\000\005\000\000\000\
-\\053\000\000\000\
-\\054\000\000\000\
-\\055\000\000\000\
-\\056\000\000\000\
-\\057\000\026\000\046\000\000\000\
-\\058\000\000\000\
-\\059\000\000\000\
-\\060\000\000\000\
-\\061\000\000\000\
-\\062\000\000\000\
-\\063\000\014\000\027\000\015\000\026\000\000\000\
-\\064\000\014\000\027\000\015\000\026\000\000\000\
-\\065\000\000\000\
 \\066\000\000\000\
+\\067\000\000\000\
+\\068\000\000\000\
+\\069\000\026\000\059\000\000\000\
+\\070\000\000\000\
+\\071\000\000\000\
+\\072\000\000\000\
+\\073\000\000\000\
+\\074\000\000\000\
+\\074\000\005\000\040\000\000\000\
+\\075\000\000\000\
+\\076\000\014\000\035\000\015\000\034\000\000\000\
+\\077\000\014\000\035\000\015\000\034\000\000\000\
+\\078\000\000\000\
+\\079\000\000\000\
+\\080\000\012\000\037\000\013\000\036\000\014\000\035\000\015\000\034\000\000\000\
+\\081\000\012\000\037\000\013\000\036\000\014\000\035\000\015\000\034\000\000\000\
+\\082\000\012\000\037\000\013\000\036\000\014\000\035\000\015\000\034\000\000\000\
+\\083\000\012\000\037\000\013\000\036\000\014\000\035\000\015\000\034\000\000\000\
+\\084\000\012\000\037\000\013\000\036\000\014\000\035\000\015\000\034\000\000\000\
+\\085\000\012\000\037\000\013\000\036\000\014\000\035\000\015\000\034\000\000\000\
 \"
 val actionRowNumbers =
-"\001\000\025\000\026\000\011\000\
-\\012\000\013\000\014\000\006\000\
-\\027\000\002\000\003\000\005\000\
-\\005\000\004\000\028\000\015\000\
-\\016\000\017\000\036\000\018\000\
-\\007\000\008\000\009\000\010\000\
-\\005\000\005\000\005\000\005\000\
-\\019\000\020\000\029\000\030\000\
-\\034\000\035\000\040\000\039\000\
-\\038\000\037\000\001\000\001\000\
-\\022\000\023\000\033\000\031\000\
-\\021\000\001\000\024\000\032\000\
-\\000\000"
+"\001\000\025\000\026\000\009\000\
+\\010\000\011\000\012\000\024\000\
+\\027\000\002\000\003\000\004\000\
+\\004\000\005\000\013\000\014\000\
+\\015\000\023\000\037\000\035\000\
+\\016\000\006\000\036\000\007\000\
+\\008\000\017\000\004\000\004\000\
+\\004\000\004\000\004\000\004\000\
+\\004\000\004\000\004\000\004\000\
+\\018\000\028\000\029\000\033\000\
+\\034\000\001\000\045\000\044\000\
+\\043\000\042\000\047\000\046\000\
+\\041\000\040\000\039\000\038\000\
+\\001\000\020\000\021\000\032\000\
+\\030\000\019\000\001\000\022\000\
+\\031\000\000\000"
 val gotoT =
 "\
-\\002\000\002\000\003\000\001\000\004\000\048\000\000\000\
+\\003\000\002\000\004\000\001\000\005\000\061\000\000\000\
 \\000\000\
-\\002\000\002\000\003\000\008\000\000\000\
-\\000\000\
-\\000\000\
-\\000\000\
-\\000\000\
-\\000\000\
-\\000\000\
-\\000\000\
-\\000\000\
-\\001\000\017\000\000\000\
-\\001\000\019\000\000\000\
-\\001\000\020\000\000\000\
+\\003\000\002\000\004\000\008\000\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
@@ -100,12 +99,9 @@ val gotoT =
 \\000\000\
 \\000\000\
 \\000\000\
-\\000\000\
-\\000\000\
-\\001\000\034\000\000\000\
-\\001\000\035\000\000\000\
-\\001\000\036\000\000\000\
-\\001\000\037\000\000\000\
+\\001\000\017\000\002\000\016\000\000\000\
+\\001\000\017\000\002\000\020\000\000\000\
+\\001\000\021\000\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
@@ -116,20 +112,47 @@ val gotoT =
 \\000\000\
 \\000\000\
 \\000\000\
-\\002\000\002\000\003\000\040\000\000\000\
-\\002\000\002\000\003\000\041\000\000\000\
+\\000\000\
+\\000\000\
+\\001\000\042\000\000\000\
+\\001\000\043\000\000\000\
+\\001\000\044\000\000\000\
+\\001\000\045\000\000\000\
+\\001\000\046\000\000\000\
+\\001\000\047\000\000\000\
+\\001\000\048\000\000\000\
+\\001\000\049\000\000\000\
+\\001\000\050\000\000\000\
+\\001\000\051\000\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
-\\002\000\002\000\003\000\046\000\000\000\
+\\003\000\002\000\004\000\053\000\000\000\
+\\000\000\
+\\000\000\
+\\000\000\
+\\000\000\
+\\000\000\
+\\000\000\
+\\000\000\
+\\000\000\
+\\000\000\
+\\000\000\
+\\003\000\002\000\004\000\054\000\000\000\
+\\000\000\
+\\000\000\
+\\000\000\
+\\000\000\
+\\000\000\
+\\003\000\002\000\004\000\059\000\000\000\
 \\000\000\
 \\000\000\
 \\000\000\
 \"
-val numstates = 49
-val numrules = 16
+val numstates = 62
+val numrules = 22
 val s = ref "" and index = ref 0
 val string_to_int = fn () => 
 let val i = !index
@@ -194,6 +217,7 @@ struct
 datatype svalue = VOID | ntVOID of unit | INT of  (int)
  | ID of  (string) | CODE of  (Ast.Statement list)
  | STATEMENTS of  (Ast.Statement list) | STATEMENT of  (Ast.Statement)
+ | CONDITIONALEXPR of  (Ast.ConditionalExpr)
  | EXPRESSION of  (Ast.Expression)
 end
 type svalue = MlyValue.svalue
@@ -268,72 +292,73 @@ case (i392,stack)
 of  ( 0, ( ( _, ( MlyValue.STATEMENTS STATEMENTS, STATEMENTS1left, 
 STATEMENTS1right)) :: rest671)) => let val  result = MlyValue.CODE (
 STATEMENTS)
- in ( LrTable.NT 3, ( result, STATEMENTS1left, STATEMENTS1right), 
+ in ( LrTable.NT 4, ( result, STATEMENTS1left, STATEMENTS1right), 
 rest671)
 end
 |  ( 1, ( ( _, ( MlyValue.STATEMENT STATEMENT, STATEMENT1left, 
 STATEMENT1right)) :: rest671)) => let val  result = 
 MlyValue.STATEMENTS ([STATEMENT])
- in ( LrTable.NT 2, ( result, STATEMENT1left, STATEMENT1right), 
+ in ( LrTable.NT 3, ( result, STATEMENT1left, STATEMENT1right), 
 rest671)
 end
 |  ( 2, ( ( _, ( MlyValue.STATEMENTS STATEMENTS, _, STATEMENTS1right))
  :: ( _, ( MlyValue.STATEMENT STATEMENT, STATEMENT1left, _)) :: 
 rest671)) => let val  result = MlyValue.STATEMENTS (
 STATEMENT :: STATEMENTS)
- in ( LrTable.NT 2, ( result, STATEMENT1left, STATEMENTS1right), 
+ in ( LrTable.NT 3, ( result, STATEMENT1left, STATEMENTS1right), 
 rest671)
 end
-|  ( 3, ( ( _, ( _, _, SEMICOLON1right)) :: ( _, ( MlyValue.ID ID, 
-ID1left, _)) :: rest671)) => let val  result = MlyValue.STATEMENT (
-Ast.Int(ID))
- in ( LrTable.NT 1, ( result, ID1left, SEMICOLON1right), rest671)
-end
-|  ( 4, ( ( _, ( _, _, SEMICOLON1right)) :: ( _, ( MlyValue.EXPRESSION
+|  ( 3, ( ( _, ( _, _, SEMICOLON1right)) :: ( _, ( MlyValue.EXPRESSION
  EXPRESSION, _, _)) :: _ :: ( _, ( MlyValue.ID ID, ID1left, _)) :: 
 rest671)) => let val  result = MlyValue.STATEMENT (
 Ast.Assignment (ID,EXPRESSION))
- in ( LrTable.NT 1, ( result, ID1left, SEMICOLON1right), rest671)
+ in ( LrTable.NT 2, ( result, ID1left, SEMICOLON1right), rest671)
 end
-|  ( 5, ( ( _, ( _, _, SEMICOLON1right)) :: _ :: _ :: ( _, ( 
+|  ( 4, ( ( _, ( _, _, SEMICOLON1right)) :: _ :: _ :: ( _, ( 
 MlyValue.ID ID, ID1left, _)) :: rest671)) => let val  result = 
 MlyValue.STATEMENT (Ast.Assign (ID,ID))
- in ( LrTable.NT 1, ( result, ID1left, SEMICOLON1right), rest671)
+ in ( LrTable.NT 2, ( result, ID1left, SEMICOLON1right), rest671)
 end
-|  ( 6, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.STATEMENTS 
-STATEMENTS, _, _)) :: _ :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION,
- _, _)) :: _ :: ( _, ( _, IF1left, _)) :: rest671)) => let val  result
- = MlyValue.STATEMENT ( Ast.If (EXPRESSION,STATEMENTS) )
- in ( LrTable.NT 1, ( result, IF1left, RBRACE1right), rest671)
+|  ( 5, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.STATEMENTS 
+STATEMENTS, _, _)) :: _ :: _ :: ( _, ( MlyValue.CONDITIONALEXPR 
+CONDITIONALEXPR, _, _)) :: _ :: ( _, ( _, IF1left, _)) :: rest671)) =>
+ let val  result = MlyValue.STATEMENT (
+ Ast.If (CONDITIONALEXPR,STATEMENTS) )
+ in ( LrTable.NT 2, ( result, IF1left, RBRACE1right), rest671)
 end
-|  ( 7, ( ( _, ( _, _, RBRACE2right)) :: ( _, ( MlyValue.STATEMENTS 
+|  ( 6, ( ( _, ( _, _, RBRACE2right)) :: ( _, ( MlyValue.STATEMENTS 
 STATEMENTS2, _, _)) :: _ :: _ :: _ :: ( _, ( MlyValue.STATEMENTS 
-STATEMENTS1, _, _)) :: _ :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION
-, _, _)) :: _ :: ( _, ( _, IF1left, _)) :: rest671)) => let val  
-result = MlyValue.STATEMENT (
- Ast.IfElse  (EXPRESSION,STATEMENTS1,STATEMENTS2) )
- in ( LrTable.NT 1, ( result, IF1left, RBRACE2right), rest671)
+STATEMENTS1, _, _)) :: _ :: _ :: ( _, ( MlyValue.CONDITIONALEXPR 
+CONDITIONALEXPR, _, _)) :: _ :: ( _, ( _, IF1left, _)) :: rest671)) =>
+ let val  result = MlyValue.STATEMENT (
+ Ast.IfElse  (CONDITIONALEXPR,STATEMENTS1,STATEMENTS2) )
+ in ( LrTable.NT 2, ( result, IF1left, RBRACE2right), rest671)
 end
-|  ( 8, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.STATEMENTS 
-STATEMENTS, _, _)) :: _ :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION,
- _, _)) :: _ :: ( _, ( _, WHILE1left, _)) :: rest671)) => let val  
-result = MlyValue.STATEMENT ( Ast.While (EXPRESSION,STATEMENTS))
- in ( LrTable.NT 1, ( result, WHILE1left, RBRACE1right), rest671)
+|  ( 7, ( ( _, ( _, _, RBRACE1right)) :: ( _, ( MlyValue.STATEMENTS 
+STATEMENTS, _, _)) :: _ :: _ :: ( _, ( MlyValue.CONDITIONALEXPR 
+CONDITIONALEXPR, _, _)) :: _ :: ( _, ( _, WHILE1left, _)) :: rest671))
+ => let val  result = MlyValue.STATEMENT (
+ Ast.While (CONDITIONALEXPR,STATEMENTS))
+ in ( LrTable.NT 2, ( result, WHILE1left, RBRACE1right), rest671)
 end
-|  ( 9, ( ( _, ( _, _, SEMICOLON1right)) :: _ :: ( _, ( MlyValue.ID ID
+|  ( 8, ( ( _, ( _, _, SEMICOLON1right)) :: _ :: ( _, ( MlyValue.ID ID
 , _, _)) :: _ :: ( _, ( _, SCANF1left, _)) :: rest671)) => let val  
 result = MlyValue.STATEMENT (Ast.Scanf(ID))
- in ( LrTable.NT 1, ( result, SCANF1left, SEMICOLON1right), rest671)
+ in ( LrTable.NT 2, ( result, SCANF1left, SEMICOLON1right), rest671)
 
 end
-|  ( 10, ( ( _, ( _, _, SEMICOLON1right)) :: _ :: ( _, ( MlyValue.ID 
-ID, _, _)) :: _ :: ( _, ( _, PRINTF1left, _)) :: rest671)) => let val 
- result = MlyValue.STATEMENT (Ast.Printf(ID))
- in ( LrTable.NT 1, ( result, PRINTF1left, SEMICOLON1right), rest671)
+|  ( 9, ( ( _, ( _, _, SEMICOLON1right)) :: _ :: ( _, ( MlyValue.ID ID
+, _, _)) :: _ :: ( _, ( _, PRINTF1left, _)) :: rest671)) => let val  
+result = MlyValue.STATEMENT (Ast.Printf(ID))
+ in ( LrTable.NT 2, ( result, PRINTF1left, SEMICOLON1right), rest671)
 
+end
+|  ( 10, ( ( _, ( MlyValue.ID ID, ID1left, ID1right)) :: rest671)) =>
+ let val  result = MlyValue.EXPRESSION (Ast.String(ID))
+ in ( LrTable.NT 0, ( result, ID1left, ID1right), rest671)
 end
 |  ( 11, ( ( _, ( MlyValue.INT INT, INT1left, INT1right)) :: rest671))
- => let val  result = MlyValue.EXPRESSION (Ast.Const INT)
+ => let val  result = MlyValue.EXPRESSION (Ast.Int INT)
  in ( LrTable.NT 0, ( result, INT1left, INT1right), rest671)
 end
 |  ( 12, ( ( _, ( MlyValue.EXPRESSION EXPRESSION2, _, EXPRESSION2right
@@ -362,6 +387,48 @@ end
 ) :: rest671)) => let val  result = MlyValue.EXPRESSION (
 Ast.divi EXPRESSION1 EXPRESSION2)
  in ( LrTable.NT 0, ( result, EXPRESSION1left, EXPRESSION2right), 
+rest671)
+end
+|  ( 16, ( ( _, ( MlyValue.EXPRESSION EXPRESSION2, _, EXPRESSION2right
+)) :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION1, EXPRESSION1left, _)
+) :: rest671)) => let val  result = MlyValue.CONDITIONALEXPR (
+Ast.lt EXPRESSION1 EXPRESSION2)
+ in ( LrTable.NT 1, ( result, EXPRESSION1left, EXPRESSION2right), 
+rest671)
+end
+|  ( 17, ( ( _, ( MlyValue.EXPRESSION EXPRESSION2, _, EXPRESSION2right
+)) :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION1, EXPRESSION1left, _)
+) :: rest671)) => let val  result = MlyValue.CONDITIONALEXPR (
+Ast.lte EXPRESSION1 EXPRESSION2)
+ in ( LrTable.NT 1, ( result, EXPRESSION1left, EXPRESSION2right), 
+rest671)
+end
+|  ( 18, ( ( _, ( MlyValue.EXPRESSION EXPRESSION2, _, EXPRESSION2right
+)) :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION1, EXPRESSION1left, _)
+) :: rest671)) => let val  result = MlyValue.CONDITIONALEXPR (
+Ast.gt EXPRESSION1 EXPRESSION2)
+ in ( LrTable.NT 1, ( result, EXPRESSION1left, EXPRESSION2right), 
+rest671)
+end
+|  ( 19, ( ( _, ( MlyValue.EXPRESSION EXPRESSION2, _, EXPRESSION2right
+)) :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION1, EXPRESSION1left, _)
+) :: rest671)) => let val  result = MlyValue.CONDITIONALEXPR (
+Ast.gte EXPRESSION1 EXPRESSION2)
+ in ( LrTable.NT 1, ( result, EXPRESSION1left, EXPRESSION2right), 
+rest671)
+end
+|  ( 20, ( ( _, ( MlyValue.EXPRESSION EXPRESSION2, _, EXPRESSION2right
+)) :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION1, EXPRESSION1left, _)
+) :: rest671)) => let val  result = MlyValue.CONDITIONALEXPR (
+Ast.eq EXPRESSION1 EXPRESSION2)
+ in ( LrTable.NT 1, ( result, EXPRESSION1left, EXPRESSION2right), 
+rest671)
+end
+|  ( 21, ( ( _, ( MlyValue.EXPRESSION EXPRESSION2, _, EXPRESSION2right
+)) :: _ :: ( _, ( MlyValue.EXPRESSION EXPRESSION1, EXPRESSION1left, _)
+) :: rest671)) => let val  result = MlyValue.CONDITIONALEXPR (
+Ast.neq EXPRESSION1 EXPRESSION2)
+ in ( LrTable.NT 1, ( result, EXPRESSION1left, EXPRESSION2right), 
 rest671)
 end
 | _ => raise (mlyAction i392)
