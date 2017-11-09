@@ -1,7 +1,7 @@
 structure Parser =
 struct
 
-    structure CLrVals = CLrValsFun(structure Token = LrParser.Token);
+    structure CLrVals = CompLrValsFun(structure Token = LrParser.Token);
     structure CLex    = CLexFun(structure Tokens = CLrVals.Tokens);
     structure CParser = Join(
                                 structure ParserData = CLrVals.ParserData
@@ -22,6 +22,7 @@ struct
             ans
 	end
 end
+
 
 
 
