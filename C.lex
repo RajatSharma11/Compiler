@@ -16,7 +16,7 @@ fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end
 	IDENTIFIER=[a-zA-Z][a-zA-Z0-9]*;
 	QUOTE=[\"];
 	SPACE=[\ \t]+;
-	%header (functor CLexFun(structure Tokens: C_TOKENS));
+	%header (functor CLexFun(structure Tokens: Comp_TOKENS));
 %%
 
 \n	=> (lineNum := !lineNum+1; linePos := yypos :: !linePos; continue());
@@ -42,6 +42,7 @@ fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end
 ")"     => (Tokens.RPAREN(yypos,yypos+1));
 "["     => (Tokens.LBRACK(yypos,yypos+1));
 "]"     => (Tokens.RBRACK(yypos,yypos+1));
+"int"		=> ( Tokens.INT (yypos,yypos+3) );
 "var"   => (Tokens.VAR(yypos, yypos + 3)); 
 "return" => (Tokens.RETURN(yypos, yypos + 6));
 "while"    => (Tokens.WHILE(yypos,yypos+5));
@@ -52,8 +53,9 @@ fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end
 "if" 	 => (Tokens.IF(yypos,yypos+2));
 "else"     => (Tokens.ELSE(yypos,yypos+4));
 
+
 {COMMENT} => (continue());
-{DIGIT} => (Tokens.INT(str2int yytext, yypos, yypos + size yytext));
+{DIGIT} => (Tokens.CONST(str2int yytext, yypos, yypos + size yytext));
 {IDENTIFIER} => (Tokens.ID(yytext, yypos, yypos + size yytext));
 {SPACE} => (continue());
 . => (ErrorMsg.error yypos ("illegal character " ^ yytext); continue());
