@@ -1,5 +1,5 @@
 int a = 10;
-int b ="Rajat";
+string b ="Rajat";
 b=a+b;
 b=a+4;
 while(a==4)

@@ -1,6 +1,6 @@
 structure Ast = 
 struct 
-datatype types =INT 
+datatype types =INT | STR
 datatype Operator = Plus | Minus | Division | Times;
 datatype RelationalOp = Lt | Gt | Eq | Neq | Le | Ge;
 datatype LogicalOp = And | Or

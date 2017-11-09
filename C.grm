@@ -17,7 +17,7 @@
   | IF | ELSE 
   | WHILE | BREAK | CONTINUE| FOR| RETURN| VAR
   | PRINTF | SCANF
-  | INT 
+  | INT | STR
 %nonterm
   EXPRESSION of Ast.Expression
   |CONDITIONALEXPR of Ast.ConditionalExpr
@@ -67,10 +67,11 @@ EXPRESSION : ID 		(Ast.Var(ID))
            | EXPRESSION TIMES EXPRESSION	(Ast.mul EXPRESSION1 EXPRESSION2)
            | EXPRESSION DIVIDE EXPRESSION	(Ast.divi EXPRESSION1 EXPRESSION2)
 
-TYPES     :INT       (Ast.INT)
+TYPES     : INT       (Ast.INT)
+          | STR       (Ast.STR)
 
-DECL      :TYPES ID SEMICOLON  (Ast.declexp TYPES ID (Ast.Const(0)))
-          |  TYPES ID ASSIGN EXPRESSION SEMICOLON     (Ast.declexp TYPES ID EXPRESSION)    
+DECL      : TYPES ID SEMICOLON  (Ast.declexp TYPES ID (Ast.Const(0)))
+          | TYPES ID ASSIGN EXPRESSION SEMICOLON     (Ast.declexp TYPES ID EXPRESSION)    
 
 
 
