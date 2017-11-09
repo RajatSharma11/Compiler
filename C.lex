@@ -27,8 +27,8 @@ fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end
 "*"     => (Tokens.TIMES(yypos,yypos+1));
 "/"     => (Tokens.DIVIDE(yypos,yypos+1));
 "," 	=> (Tokens.COMMA(yypos,yypos+1));
-"&"	=> (Tokens.AND(yypos,yypos+1));
-"|"     => (Tokens.OR(yypos,yypos+1));
+"&&"	=> (Tokens.AND(yypos,yypos+1));
+"||"     => (Tokens.OR(yypos,yypos+1));
 "="     => (Tokens.ASSIGN(yypos,yypos+1));
 ">="	=> (Tokens.GE(yypos,yypos+2));
 ">"	=> (Tokens.GT(yypos,yypos+1));
