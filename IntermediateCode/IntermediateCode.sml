@@ -166,5 +166,3 @@ fun compile []        = []
   | compile (x :: xs) = (compileExpr x)  @ (compile xs)
 
 end
-
-end

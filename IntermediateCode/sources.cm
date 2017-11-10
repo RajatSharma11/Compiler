@@ -2,6 +2,7 @@ Group is
 C.grm
 errormsg.sml
 parser.sml
+IntermediateCode.sml
 C_ast.sml
 C.lex
 $/ml-yacc-lib.cm
