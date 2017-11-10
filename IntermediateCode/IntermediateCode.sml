@@ -159,17 +159,6 @@ fun compileExpr (Ast.Decl(_,id,expr)) = let
 					[b]
 					end		
 
-(* | compileExpr (Ast.Fun1 (var,name,arg)) = let
-						val a = String.concat[var,"=",name,"(",arg,")",";"];
-					in
-						[a]
-					end
-| compileExpr (Ast.Fun2 (var,name,arg1,arg2)) = let
-						val a = String.concat[var,"=",name,"(",arg1,",",arg2,")",";"];
-					in
-						[a]
-					end *)
-
 
 
 fun compileStmts []        = []
@@ -182,8 +171,8 @@ fun getArgs [Ast.aRg(types, id)] = id
 				in
 					String.concat[a,b]
 				end
-fun compileFuncs [] = []
-| compileFuncs (Ast.Func (a,b,c)::xs) = 
+fun compileFun [] = []
+| compileFun (Ast.Func (a,b,c)::xs) = 
 						let
 							val a = String.concat ["function ",a]
 							val a = String.concat [a," ("]
@@ -193,7 +182,7 @@ fun compileFuncs [] = []
 							val a = String.concat[a, "{"]
 							val x = String.concat (compileStmts c)
 							val a = String.concat [a , x,"return ",";","}"]
-							val x = compileFuncs xs
+							val x = compileFun xs
 						in
 							(a::x)
 						end
@@ -201,7 +190,7 @@ fun compileFuncs [] = []
 fun compile (main,funcs) = 
 				let 
 					val mainLst = compileStmts main
-					val funcLst = compileFuncs funcs
+					val funcLst = compileFun funcs
 				in
 					mainLst@ funcLst
 					
