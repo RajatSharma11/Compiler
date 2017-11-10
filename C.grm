@@ -23,9 +23,13 @@
   |CONDITIONALEXPR of Ast.ConditionalExpr
   |STATEMENT of Ast.Statement
   |STATEMENTS of Ast.Statement list
-  |CODE of Ast.Statement list
-  | TYPES of Ast.types
-  | DECL of Ast.Statement
+  |FUNCTION of Ast.Function
+  |FUNCTIONS of Ast.Function list
+  |ARG of Ast.Arg
+  |ARGS of Ast.Arg list
+  |CODE of Ast.Statement list * Ast.Function list
+  |TYPES of Ast.types
+  |DECL of Ast.Statement
 
 %eop EOF
 %noshift EOF
@@ -45,9 +49,25 @@
 
 %%
 
-CODE : INT MAIN LPAREN RPAREN LBRACE STATEMENTS RETURN SEMICOLON RBRACE        (STATEMENTS)
+CODE : MAIN LPAREN RPAREN LBRACE STATEMENTS RETURN SEMICOLON RBRACE FUNCTIONS   (STATEMENTS,FUNCTIONS)
 
-STATEMENTS : STATEMENT    ([STATEMENT])
+TYPES     : INT       (Ast.INT)
+          | STR       (Ast.STR)
+
+ARGS 	  :  ([])
+	  | ARG ([ARG])
+	  | ARG ARGS (ARG :: ARGS)
+
+ARG      : TYPES ID  (Ast.aRg(TYPES, ID))
+
+FUNCTIONS :   ([])
+	  | FUNCTION ([FUNCTION])
+	  | FUNCTION FUNCTIONS(FUNCTION :: FUNCTIONS)
+
+FUNCTION  : ID LPAREN ARGS RPAREN LBRACE STATEMENTS RETURN SEMICOLON RBRACE	(Ast.Func(ID,ARGS,STATEMENTS))
+
+STATEMENTS :  ([])
+	   | STATEMENT    ([STATEMENT])
            | STATEMENT  STATEMENTS (STATEMENT :: STATEMENTS)
 
 
@@ -67,8 +87,7 @@ EXPRESSION : ID 		(Ast.Var(ID))
            | EXPRESSION TIMES EXPRESSION	(Ast.mul EXPRESSION1 EXPRESSION2)
            | EXPRESSION DIVIDE EXPRESSION	(Ast.divi EXPRESSION1 EXPRESSION2)
 
-TYPES     : INT       (Ast.INT)
-          | STR       (Ast.STR)
+
 
 DECL      : TYPES ID SEMICOLON  (Ast.declexp TYPES ID (Ast.Const(0)))
           | TYPES ID ASSIGN EXPRESSION SEMICOLON     (Ast.declexp TYPES ID EXPRESSION)    

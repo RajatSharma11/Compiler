@@ -46,6 +46,7 @@ fun eof() = let val pos = hd(!linePos) in Tokens.EOF(pos,pos) end
 "int"	=> ( Tokens.INT (yypos,yypos+3) );
 "string" => (Tokens.STR(yypos,yypos+6));
 "var"   => (Tokens.VAR(yypos, yypos + 3)); 
+"main"	=> (Tokens.MAIN(yypos,yypos+4));
 "return" => (Tokens.RETURN(yypos, yypos + 6));
 "while"    => (Tokens.WHILE(yypos,yypos+5));
 "printf"   => (Tokens.PRINTF(yypos,yypos+6));
