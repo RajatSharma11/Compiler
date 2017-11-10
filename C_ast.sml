@@ -15,7 +15,6 @@ datatype Statement = Assignment of string * Expression
 | Scanf of string
 | Printf of string
 | Decl of types * string * Expression
-| Dec of types * string * string
  
 datatype Arg = aRg of types * string
 
@@ -23,7 +22,6 @@ datatype Function = Func of string * Arg list * Statement list
 
  
 fun declexp x_type x exp = Decl(x_type ,x,exp)
-fun declvar x_type x str= Dec (x_type ,x , str)
 
 fun plus a b = Operation(a, Plus, b)
 fun minus a b = Operation(a, Minus, b)
