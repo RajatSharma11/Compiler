@@ -1,0 +1,1 @@
+var b="Rajat";a=a+2;b="Hello";if(a==3&&b=="Hello") {while(a!=4) {a=a*4;}}var c=10;if(c==10) {a=3;}else{c=3;}function hello (a,b){a=5;return ;}

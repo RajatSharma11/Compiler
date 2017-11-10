@@ -1,83 +1,83 @@
 structure IntermediateCode =
 struct
-fun Expr (Ast.Const (c)) = Int.toString c
-| Expr (Ast.Var(c)) = c
-| Expr (Ast.String(c)) = c
-| Expr (Ast.Operation (a,Ast.Plus,b)) = let
-					val a = Expr a
-					val b = Expr b
+fun Expression (Ast.Const (c)) = Int.toString c
+| Expression (Ast.Var(c)) = c
+| Expression (Ast.String(c)) = c
+| Expression (Ast.Operation (a,Ast.Plus,b)) = let
+					val a = Expression a
+					val b = Expression b
 					val c = String.concat [a,"+"]
 					val d = String.concat [c,b]
 				in
 					d
 				end
-| Expr (Ast.Operation(a,Ast.Minus,b)) = let
-					val a = Expr a
-					val b = Expr b
+| Expression (Ast.Operation(a,Ast.Minus,b)) = let
+					val a = Expression a
+					val b = Expression b
 					val c = String.concat [a,"-"]
 					val d = String.concat [c,b]
 				in
 					d
 				end
-| Expr (Ast.Operation(a,Ast.Times,b)) = let
-					val a = Expr a
-					val b = Expr b
+| Expression (Ast.Operation(a,Ast.Times,b)) = let
+					val a = Expression a
+					val b = Expression b
 					val c = String.concat [a,"*"]
 					val d = String.concat [c,b]
 				in
 					d
 				end
-| Expr (Ast.Operation(a,Ast.Division,b)) = let
-					val a = Expr a
-					val b = Expr b
+| Expression (Ast.Operation(a,Ast.Division,b)) = let
+					val a = Expression a
+					val b = Expression b
 					val c = String.concat [a,"/"]
 					val d = String.concat [c,b]
 				in
 					d
 				end
 fun ConditionalExpr (Ast.rOperation (a,Ast.Lt,b)) = let 
-							val a = Expr a
-							val b = Expr b
+							val a = Expression a
+							val b = Expression b
 							val c = String.concat [a ,"<"]
 							val d = String.concat[c, b]
 						in
 							d
 						end
 | ConditionalExpr (Ast.rOperation (a,Ast.Gt,b)) = let 
-							val a = Expr a
-							val b = Expr b
+							val a = Expression a
+							val b = Expression b
 							val c = String.concat [a ,">"]
 							val d = String.concat[c, b]
 						in
 							d
 						end
 | ConditionalExpr (Ast.rOperation (a,Ast.Le,b)) = let 
-							val a = Expr a
-							val b = Expr b
+							val a = Expression a
+							val b = Expression b
 							val c = String.concat [a ,"<="]
 							val d = String.concat[c, b]
 						in
 							d
 						end
 | ConditionalExpr (Ast.rOperation (a,Ast.Ge,b)) = let 
-							val a = Expr a
-							val b = Expr b
+							val a = Expression a
+							val b = Expression b
 							val c = String.concat [a ,">="]
 							val d = String.concat[c, b]
 						in
 							d
 						end
 | ConditionalExpr (Ast.rOperation (a,Ast.Eq,b)) = let 
-							val a = Expr a
-							val b = Expr b
+							val a = Expression a
+							val b = Expression b
 							val c = String.concat [a ,"=="]
 							val d = String.concat[c, b]
 						in
 							d
 						end
 | ConditionalExpr (Ast.rOperation (a,Ast.Neq,b)) = let 
-							val a = Expr a
-							val b = Expr b
+							val a = Expression a
+							val b = Expression b
 							val c = String.concat [a ,"!="]
 							val d = String.concat[c, b]
 						in
@@ -100,12 +100,12 @@ fun ConditionalExpr (Ast.rOperation (a,Ast.Lt,b)) = let
 							d
 						end
 fun compileExpr (Ast.Decl(_,id,expr)) = let
-						val expr = Expr expr
+						val expr = Expression expr
 					   in
 					   	[String.concat ["var ",String.concat[id,"="], String.concat [expr,";"]]]
 					   end
 | compileExpr (Ast.Assignment (id,expr)) = let
-						val expr = Expr expr
+						val expr = Expression expr
 					   in
 					   	[String.concat [String.concat[id,"="], String.concat [expr,";"]]]
 					   end
@@ -187,12 +187,14 @@ fun compileFun [] = []
 							(a::x)
 						end
 							
-fun compile (main,funcs) = 
+fun compile (main,func) = 
 				let 
 					val mainLst = compileStmts main
-					val funcLst = compileFun funcs
+					val funcLst = compileFun func
 				in
 					mainLst@ funcLst
 					
 				end
 end
+
+

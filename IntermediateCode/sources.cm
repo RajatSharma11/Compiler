@@ -3,6 +3,7 @@ C.grm
 errormsg.sml
 parser.sml
 IntermediateCode.sml
+driver.sml
 C_ast.sml
 C.lex
 $/ml-yacc-lib.cm
