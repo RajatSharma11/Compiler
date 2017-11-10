@@ -1,4 +1,4 @@
-structure Translate =
+structure IntermediateCode =
 struct
 fun Expr (Ast.Const (c)) = Int.toString c
 | Expr (Ast.Var(c)) = c
@@ -152,17 +152,58 @@ fun compileExpr (Ast.Decl(_,id,expr)) = let
 					in 
 					[b]
 					end
-|compileExpr (Ast.Scanf (stmt)) = let
+| compileExpr (Ast.Scanf (stmt)) = let
 					val a = String.concat["prompt(",stmt]
 					val b = String.concat[a,")"]
 					in 
 					[b]
+					end		
+
+(* | compileExpr (Ast.Fun1 (var,name,arg)) = let
+						val a = String.concat[var,"=",name,"(",arg,")",";"];
+					in
+						[a]
 					end
-				
+| compileExpr (Ast.Fun2 (var,name,arg1,arg2)) = let
+						val a = String.concat[var,"=",name,"(",arg1,",",arg2,")",";"];
+					in
+						[a]
+					end *)
 
 
 
-fun compile []        = []
-  | compile (x :: xs) = (compileExpr x)  @ (compile xs)
+fun compileStmts []        = []
+  | compileStmts (x :: xs) = (compileExpr x)  @ (compileStmts xs)
 
+fun getArgs [Ast.aRg(types, id)] = id
+|   getArgs (Ast.aRg(types, id) :: xs) = let
+					val a = String.concat [id,","]
+					val b = getArgs xs
+				in
+					String.concat[a,b]
+				end
+fun compileFuncs [] = []
+| compileFuncs (Ast.Func (a,b,c)::xs) = 
+						let
+							val a = String.concat ["function ",a]
+							val a = String.concat [a," ("]
+							val x = getArgs b
+							val a = String.concat[a,x]
+							val a = String.concat[a, ")"]
+							val a = String.concat[a, "{"]
+							val x = String.concat (compileStmts c)
+							val a = String.concat [a , x,"return ",";","}"]
+							val x = compileFuncs xs
+						in
+							(a::x)
+						end
+							
+fun compile (main,funcs) = 
+				let 
+					val mainLst = compileStmts main
+					val funcLst = compileFuncs funcs
+				in
+					mainLst@ funcLst
+					
+				end
 end
