@@ -26,6 +26,6 @@ else
 return;
 }
 
-hello(){
+hello(int a,int b){
 return;
 }			
