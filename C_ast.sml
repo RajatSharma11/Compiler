@@ -21,6 +21,7 @@ datatype Statement = Assignment of string * Expression
  
 fun declexp x_type x exp = Decl(x_type ,x,exp)
 fun declvar x_type x str= Dec (x_type ,x , str)
+
 fun plus a b = Operation(a, Plus, b)
 fun minus a b = Operation(a, Minus, b)
 fun mul a b = Operation(a, Times, b)
