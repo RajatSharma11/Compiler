@@ -3,7 +3,7 @@ int a;
 string b ="Rajat";
 a = a + 2;
 b = "Hello";
-hello(2);
+hello(2,3);
 if (a == 3 && b == "Hello") 
 {
 	a = a * 3;
@@ -27,6 +27,6 @@ else
 return;
 }
 
-hello(int a,int b,string c){
+hello(int a, int b){
 return;
 }			
