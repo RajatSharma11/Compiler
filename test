@@ -3,13 +3,14 @@ int a;
 string b ="Rajat";
 a = a + 2;
 b = "Hello";
-	
+hello(2);
 if (a == 3 && b == "Hello") 
 {
 	a = a * 3;
 	while(a != 4)
 	{
 		a = a * 4;
+		printf(a);
 	}
 }
 	

@@ -25,6 +25,7 @@
   |STATEMENTS of Ast.Statement list
   |FUNCTIONS of Ast.Function list
   |ARGS of Ast.Arg list
+  |ARGUMENTS of Ast.Expression list
   |CODE of Ast.Statement list * Ast.Function list
   |TYPES of Ast.types
   |DECL of Ast.Statement
@@ -56,6 +57,9 @@ ARGS 	  : TYPES ID	(Ast.aRg (TYPES,ID)::[])
 	   | TYPES ID COMMA ARGS (Ast.aRg(TYPES,ID) :: ARGS)
 	   | 	([]) 
 
+ARGUMENTS : EXPRESSION  ARGUMENTS (EXPRESSION :: ARGUMENTS)
+	   | 	([])
+
 FUNCTIONS : ID LPAREN ARGS RPAREN LBRACE STATEMENTS RETURN SEMICOLON RBRACE FUNCTIONS	(Ast.Func(ID,ARGS,STATEMENTS)::FUNCTIONS)
 	| 	([])
 
@@ -72,6 +76,7 @@ STATEMENT : ID ASSIGN EXPRESSION SEMICOLON	(Ast.Assignment (ID,EXPRESSION))
 	  | SCANF LPAREN ID RPAREN SEMICOLON			(Ast.Scanf(ID))
 	  | PRINTF LPAREN ID RPAREN SEMICOLON			(Ast.Printf(ID))
 	  | DECL  (DECL)
+	  | ID LPAREN ARGUMENTS RPAREN LBRACE SEMICOLON (Ast.Fun(ID,ARGUMENTS))
 
 EXPRESSION : ID 		(Ast.Var(ID))
            | CONST		(Ast.Const CONST )

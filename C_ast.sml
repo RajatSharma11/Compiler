@@ -7,6 +7,7 @@ datatype LogicalOp = And | Or
 datatype Expression = Var of string | Const of int | Operation of Expression * Operator * Expression| String of string;
 datatype ConditionalExpr = rOperation of Expression * RelationalOp * Expression | lOperation of ConditionalExpr * LogicalOp * ConditionalExpr
 
+
 datatype Statement = Assignment of string * Expression
 | Assign of string * string
 | If of ConditionalExpr * Statement list
@@ -15,10 +16,10 @@ datatype Statement = Assignment of string * Expression
 | Scanf of string
 | Printf of string
 | Decl of types * string * Expression
+| Fun of string * Expression list
  
 datatype Arg = aRg of types * string
-
-datatype Function = Func of string * Arg list * Statement list
+datatype Function = Func of string * Arg list * Statement list 
 
  
 fun declexp x_type x exp = Decl(x_type ,x,exp)
