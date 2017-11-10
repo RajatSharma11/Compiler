@@ -11,6 +11,11 @@ Files Used:
 - C_ast.cml : Ast File Contains the abstract syntax. 
 - C.lex : C.lex file a lexer file. 
 - C.grm : C.grm is the actual grammar file.
+- sources.cm : Used for compiling all the files
+- errormsg.sml : Used for error msgs on getting errors
+- test : Sample code for testing purpose
+- syntaxError : Sample code with syntax error (unknown syntax ^ added in file)
+- grammarError : Sample code with grammar error (unkown grammar rule added in file)
 
 
 Functions with variable Argument are supported. Functions doesn't have return type.
